@@ -1,0 +1,12 @@
+D:\programmer\Abu-Hadhoud\Stage 2\Level 19\UserControlTest\bin\Debug\UserControlTest.exe.config
+D:\programmer\Abu-Hadhoud\Stage 2\Level 19\UserControlTest\bin\Debug\UserControlTest.exe
+D:\programmer\Abu-Hadhoud\Stage 2\Level 19\UserControlTest\bin\Debug\UserControlTest.pdb
+D:\programmer\Abu-Hadhoud\Stage 2\Level 19\UserControlTest\obj\Debug\UserControlTest.csproj.AssemblyReference.cache
+D:\programmer\Abu-Hadhoud\Stage 2\Level 19\UserControlTest\obj\Debug\UserControlTest.Form1.resources
+D:\programmer\Abu-Hadhoud\Stage 2\Level 19\UserControlTest\obj\Debug\UserControlTest.Properties.Resources.resources
+D:\programmer\Abu-Hadhoud\Stage 2\Level 19\UserControlTest\obj\Debug\UserControlTest.UserControl1.resources
+D:\programmer\Abu-Hadhoud\Stage 2\Level 19\UserControlTest\obj\Debug\UserControlTest.csproj.GenerateResource.cache
+D:\programmer\Abu-Hadhoud\Stage 2\Level 19\UserControlTest\obj\Debug\UserControlTest.csproj.CoreCompileInputs.cache
+D:\programmer\Abu-Hadhoud\Stage 2\Level 19\UserControlTest\obj\Debug\UserControlTest.exe
+D:\programmer\Abu-Hadhoud\Stage 2\Level 19\UserControlTest\obj\Debug\UserControlTest.pdb
+D:\programmer\Abu-Hadhoud\Stage 2\Level 19\UserControlTest\obj\Debug\UserControlTest.Form2.resources
