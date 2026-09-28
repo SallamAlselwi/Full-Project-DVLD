@@ -1,4 +1,5 @@
-﻿using DVLD_DataAccess;
+﻿using DVLD_Business_Layer.Tests;
+using DVLD_DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,7 +11,7 @@ namespace DVLD_Business_Layer
 {
     public class clsLicenseClassesBusiness
     {
-        enum _enMode { Update, AddNew }
+        public enum enMode { Update = 1, AddNew = 0 }
 
         public int LicenseClassID { get; }
         public string ClassName { get; set; }
@@ -18,8 +19,18 @@ namespace DVLD_Business_Layer
         public byte MinimumAllowedAge { get; set; }
         public byte DefaultValidityLength { get; set; }
         public decimal ClassFees { get; set; }
-        _enMode Mode { get; set; }
-        clsLicenseClassesBusiness() { }
+        enMode Mode { get; set; }
+        clsLicenseClassesBusiness() 
+        {
+            this.LicenseClassID = -1;
+            this.ClassName = "";
+            this.ClassDescription = "";
+            this.MinimumAllowedAge = 18;
+            this.DefaultValidityLength = 10;
+            this.ClassFees = 0;
+
+            Mode = enMode.AddNew;
+        }
         clsLicenseClassesBusiness(int LicenseClassID, string ClassName, string ClassDescription, byte MinimumAllowedAge, 
                                     byte DefaultValidityLength, decimal ClassFees)
         {
@@ -30,13 +41,14 @@ namespace DVLD_Business_Layer
             this.DefaultValidityLength = DefaultValidityLength;
             this.ClassFees = ClassFees;
 
-            Mode = _enMode.Update;
+            Mode = enMode.Update;
         }
         static public DataTable GetAllLicenseClasses()
         {
             return clsLicenseClassesDataAccess.GetAllLicenseClassess();
         }
-        static public clsLicenseClassesBusiness FindLicenseClasses(int LicenseClassID)
+
+        public static clsLicenseClassesBusiness Find(int LicenseClassID)
         {
             DataRow row = clsLicenseClassesDataAccess.FindLicenseClasses(LicenseClassID);
             if (row != null)
@@ -46,6 +58,7 @@ namespace DVLD_Business_Layer
             else
                 return null;
         }
+        
         public static clsLicenseClassesBusiness Find(string ClassName)
         {
             int LicenseClassID = -1; string ClassDescription = "";
@@ -62,17 +75,6 @@ namespace DVLD_Business_Layer
         }
 
 
-        //private bool _Update()
-        //{
-        //    return clsLicenseClassesDataAccess.Update();
-        //}
-        //public bool Save()
-        //{
-        //    switch (this.Mode)
-        //    {
-        //        case enMode.Update: return _Update();
-        //        default: return false;
-        //    }
-        //}
+
     }
 }

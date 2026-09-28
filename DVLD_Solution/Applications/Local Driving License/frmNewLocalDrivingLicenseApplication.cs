@@ -68,7 +68,7 @@ namespace DVLD_Solution
 
             comboBox1.SelectedValue = 3;
 
-            labFees.Text = clsLicenseClassesBusiness.FindLicenseClasses(Convert.ToInt16(comboBox1.SelectedValue.ToString())).ClassFees.ToString();
+            labFees.Text = clsLicenseClassesBusiness.Find(Convert.ToInt16(comboBox1.SelectedValue.ToString())).ClassFees.ToString();
             labApplicationDate.Text = DateTime.Now.ToString();
             labUserName.Text = clsGlobal.user.UserName;
         }
@@ -76,7 +76,7 @@ namespace DVLD_Solution
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(comboBox1.Text != "System.Data.DataRowView")
-                labFees.Text = clsLicenseClassesBusiness.FindLicenseClasses(Convert.ToInt16(comboBox1.SelectedValue.ToString())).ClassFees.ToString();
+                labFees.Text = clsLicenseClassesBusiness.Find(Convert.ToInt16(comboBox1.SelectedValue.ToString())).ClassFees.ToString();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

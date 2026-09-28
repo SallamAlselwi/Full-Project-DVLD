@@ -10,13 +10,17 @@ namespace DVLD_Business_Layer
 {
     public class clsTestTypesBusiness
     {
-        enum _enMode { Update, AddNew }
+        public enum enMode { Update, AddNew };
+        public enum enTestType { Vision = 1, Written = 2, PracticalStreet = 3};
+
         public int TestTypeID { get; }
         public string TestTypeTitle { get; set; }
         public string TestTypeDescription { get; set; }
         public decimal TestTypeFees { get; set; }
-        _enMode Mode { get; set; }
+        enMode Mode { get; set; }
+        
         clsTestTypesBusiness() { }
+        
         clsTestTypesBusiness(int TestTypeID, string TestTypeTitle, string TestTypeDescription, decimal TestTypeFees)
         {
             this.TestTypeID = TestTypeID;
@@ -24,12 +28,14 @@ namespace DVLD_Business_Layer
             this.TestTypeDescription = TestTypeDescription;
             this.TestTypeFees = TestTypeFees;
 
-            Mode = _enMode.Update;
+            Mode = enMode.Update;
         }
+        
         static public DataTable GetAllTestTypes()
         {
             return clsTestTypesDataAccess.GetAllTestTypes();
         }
+        
         static public clsTestTypesBusiness FindTestTypes(int TestTypeID)
         {
             DataRow row = clsTestTypesDataAccess.FindTestTypes(TestTypeID);
@@ -38,15 +44,17 @@ namespace DVLD_Business_Layer
             else
                 return null;
         }
+
         private bool _Update()
         {
             return clsTestTypesDataAccess.UpdateTestTypes(this.TestTypeID, this.TestTypeTitle, this.TestTypeDescription, this.TestTypeFees);
         }
+        
         public bool Save()
         {
             switch (this.Mode)
             {
-                case _enMode.Update: return _Update();
+                case enMode.Update: return _Update();
                 default: return false;
             }
         }

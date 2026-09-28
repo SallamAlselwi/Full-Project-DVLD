@@ -196,14 +196,19 @@ namespace DVLD_Solution
                 
         }
 
-        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        void _ScheduleTest(clsTestTypesBusiness.enTestType TestType)
         {
-            frmListTestAppointments listTestAppointments = new frmListTestAppointments();
+            int ID = Convert.ToInt16(dataGridView1.CurrentRow.Cells["LocalDrivingLicenseApplicationID"].Value);
+
+            frmListTestAppointments listTestAppointments = new frmListTestAppointments(ID, TestType);
 
             listTestAppointments.ShowDialog();
 
             LoadData();
-
+        }
+        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(clsTestTypesBusiness.enTestType.Vision);
         }
     }
 }

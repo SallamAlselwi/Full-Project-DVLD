@@ -1,4 +1,5 @@
-﻿using DVLD_DataAccess;
+﻿using DVLD_Business_Layer.Tests;
+using DVLD_DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,11 +13,12 @@ namespace DVLD_Business_Layer
     public class clsLDLApplicationsBusiness : clsApplicationBusiness
     {
         public enum enMode { AddNew = 0, Update = 1 };
-        public enMode Mode = enMode.AddNew;
 
         public int LocalDrivingLicenseApplicationID { set; get; }
         public int LicenseClassID { set; get; }
         public clsLicensesBuisness LicenseClassInfo;
+        public enMode Mode {  set; get; }
+
 
         public clsLDLApplicationsBusiness()
 
@@ -91,6 +93,11 @@ namespace DVLD_Business_Layer
             else
                 return null;
 
+        }
+
+        public byte GetPassedTestCount()
+        {
+            return clsTestsBusiness.GetPassedTestCount(this.LocalDrivingLicenseApplicationID);
         }
 
         public bool Cancel()

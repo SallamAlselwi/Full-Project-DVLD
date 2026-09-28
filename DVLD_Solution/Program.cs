@@ -16,7 +16,7 @@ namespace DVLD_Solution
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMange_LocalDrivingLicenseApplication());
+            Application.Run(new Login());
         }
     }
 }

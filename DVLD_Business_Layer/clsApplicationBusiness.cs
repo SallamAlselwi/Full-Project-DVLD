@@ -21,6 +21,12 @@ namespace DVLD_Business_Layer
 
         public int ApplicationID { get; set; }
         public int ApplicantPersonID {get; set;}
+        public string ApplicantFullName 
+        {   get
+            {
+                return clsPeopleBusiness.Find(this.ApplicantPersonID).FullName;
+            }
+        }
         public DateTime ApplicationDate {get; set;}
         public int ApplicationTypeID {get; set;}
         public Status ApplicationStatus {get; set;}

@@ -67,7 +67,9 @@
     <Compile Include="clsLDLApplicationsBusiness.cs" />
     <Compile Include="clsLicenseClassesBusiness.cs" />
     <Compile Include="clsLicensesBuisness.cs" />
-    <Compile Include="clsTestTypesBusiness.cs" />
+    <Compile Include="Tests\clsTestAppointmentsBusiness.cs" />
+    <Compile Include="Tests\clsTestsBusiness.cs" />
+    <Compile Include="Tests\clsTestTypesBusiness.cs" />
     <Compile Include="clsUsersBusines.cs" />
     <Compile Include="clsPeopleBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
