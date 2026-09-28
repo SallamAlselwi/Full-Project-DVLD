@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +35,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.4191.47, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.4191.47\lib\net462\Microsoft.Web.WebView2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.4191.47, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.4191.47\lib\net462\Microsoft.Web.WebView2.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.4191.47, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.4191.47\lib\net462\Microsoft.Web.WebView2.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,40 +65,64 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsGlobal.cs" />
-    <Compile Include="frmManage_TestTypes.cs">
+    <Compile Include="Applications\Local Driving License\frmManage_LocalDrivingLicenseApplication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmManage_TestTypes.Designer.cs">
-      <DependentUpon>frmManage_TestTypes.cs</DependentUpon>
+    <Compile Include="Applications\Local Driving License\frmManage_LocalDrivingLicenseApplication.Designer.cs">
+      <DependentUpon>frmManage_LocalDrivingLicenseApplication.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmManage_ApplicationTypes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmManage_ApplicationTypes.Designer.cs">
-      <DependentUpon>frmManage_ApplicationTypes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmUpdateTestTypes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUpdateTestTypes.Designer.cs">
-      <DependentUpon>frmUpdateTestTypes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmUpdateApplicationTypes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUpdateApplicationTypes.Designer.cs">
-      <DependentUpon>frmUpdateApplicationTypes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmNewLocalDrivingLicenseApplication.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNewLocalDrivingLicenseApplication.Designer.cs">
-      <DependentUpon>frmNewLocalDrivingLicenseApplication.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UCSearchPerson.cs">
+    <Compile Include="Tests\Controls\UCDrivingLicenseApplicationInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCSearchPerson.Designer.cs">
+    <Compile Include="Tests\Controls\UCDrivingLicenseApplicationInfo.Designer.cs">
+      <DependentUpon>UCDrivingLicenseApplicationInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\frmListTestAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests\frmListTestAppointments.Designer.cs">
+      <DependentUpon>frmListTestAppointments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\Tests Types\frmManage_TestTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests\Tests Types\frmManage_TestTypes.Designer.cs">
+      <DependentUpon>frmManage_TestTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Application Types\frmManage_ApplicationTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Application Types\frmManage_ApplicationTypes.Designer.cs">
+      <DependentUpon>frmManage_ApplicationTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReports.Designer.cs">
+      <DependentUpon>frmReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\Tests Types\frmUpdateTestTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests\Tests Types\frmUpdateTestTypes.Designer.cs">
+      <DependentUpon>frmUpdateTestTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Application Types\frmUpdateApplicationTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Application Types\frmUpdateApplicationTypes.Designer.cs">
+      <DependentUpon>frmUpdateApplicationTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmNewLocalDrivingLicenseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmNewLocalDrivingLicenseApplication.Designer.cs">
+      <DependentUpon>frmNewLocalDrivingLicenseApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\UCSearchPerson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\UCSearchPerson.Designer.cs">
       <DependentUpon>UCSearchPerson.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\frmChangePassword.cs">
@@ -95,10 +137,10 @@
     <Compile Include="People\AddEditPersonInfo.Designer.cs">
       <DependentUpon>AddEditPersonInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCUserDetails.cs">
+    <Compile Include="Users\UCUserDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCUserDetails.Designer.cs">
+    <Compile Include="Users\UCUserDetails.Designer.cs">
       <DependentUpon>UCUserDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\AddEditNewUser.cs">
@@ -139,10 +181,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UCPersonDetails.cs">
+    <Compile Include="People\UCPersonDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCPersonDetails.Designer.cs">
+    <Compile Include="People\UCPersonDetails.Designer.cs">
       <DependentUpon>UCPersonDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\UserDetails.cs">
@@ -151,22 +193,34 @@
     <Compile Include="Users\UserDetails.Designer.cs">
       <DependentUpon>UserDetails.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmManage_TestTypes.resx">
+    <EmbeddedResource Include="Applications\Local Driving License\frmManage_LocalDrivingLicenseApplication.resx">
+      <DependentUpon>frmManage_LocalDrivingLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests\Controls\UCDrivingLicenseApplicationInfo.resx">
+      <DependentUpon>UCDrivingLicenseApplicationInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests\frmListTestAppointments.resx">
+      <DependentUpon>frmListTestAppointments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests\Tests Types\frmManage_TestTypes.resx">
       <DependentUpon>frmManage_TestTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmManage_ApplicationTypes.resx">
+    <EmbeddedResource Include="Applications\Application Types\frmManage_ApplicationTypes.resx">
       <DependentUpon>frmManage_ApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUpdateTestTypes.resx">
+    <EmbeddedResource Include="Reports\frmReports.resx">
+      <DependentUpon>frmReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests\Tests Types\frmUpdateTestTypes.resx">
       <DependentUpon>frmUpdateTestTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUpdateApplicationTypes.resx">
+    <EmbeddedResource Include="Applications\Application Types\frmUpdateApplicationTypes.resx">
       <DependentUpon>frmUpdateApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNewLocalDrivingLicenseApplication.resx">
+    <EmbeddedResource Include="Applications\Local Driving License\frmNewLocalDrivingLicenseApplication.resx">
       <DependentUpon>frmNewLocalDrivingLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCSearchPerson.resx">
+    <EmbeddedResource Include="People\UCSearchPerson.resx">
       <DependentUpon>UCSearchPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmChangePassword.resx">
@@ -175,7 +229,7 @@
     <EmbeddedResource Include="People\AddEditPersonInfo.resx">
       <DependentUpon>AddEditPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCUserDetails.resx">
+    <EmbeddedResource Include="Users\UCUserDetails.resx">
       <DependentUpon>UCUserDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\AddEditNewUser.resx">
@@ -201,12 +255,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCPersonDetails.resx">
+    <EmbeddedResource Include="People\UCPersonDetails.resx">
       <DependentUpon>UCPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\UserDetails.resx">
       <DependentUpon>UserDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -582,5 +637,31 @@
   <ItemGroup>
     <None Include="Resources\Written Test 512.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\الإدارة العامة للمرور.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Remamber me.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\DVLD People.html" />
+    <Content Include="Reports\DVLD Reports People.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\DVLD Reports Users.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\ApplicationType1.png" />
+    <None Include="Resources\PassedTests 32.png" />
+    <None Include="Resources\Report.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Microsoft.Web.WebView2.1.0.4191.47\build\Microsoft.Web.WebView2.targets" Condition="Exists('packages\Microsoft.Web.WebView2.1.0.4191.47\build\Microsoft.Web.WebView2.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.Web.WebView2.1.0.4191.47\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Web.WebView2.1.0.4191.47\build\Microsoft.Web.WebView2.targets'))" />
+  </Target>
 </Project>

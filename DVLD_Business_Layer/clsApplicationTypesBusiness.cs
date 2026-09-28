@@ -13,6 +13,7 @@ namespace DVLD_Business_Layer
         enum _enMode { Update, AddNew }
 
         public int ApplicationTypeID {get;}
+        public string ClassName { get; set; }
         public string ApplicationTypeTitle { get; set;}
         public decimal ApplicationFees { get; set; }
         _enMode Mode { get; set;}
@@ -32,11 +33,23 @@ namespace DVLD_Business_Layer
             return clsApplicationTypesDataAccess.GetAllApplicationTypes();
 
         }
+        public static clsApplicationTypesBusiness Find(int ID)
+        {
+            string Title = ""; decimal Fees = 0;
+
+            if (clsApplicationTypesDataAccess.GetApplicationTypeInfoByID(ID, ref Title, ref Fees))
+
+                return new clsApplicationTypesBusiness(ID, Title, Fees);
+            else
+                return null;
+
+        }
+        
         static public clsApplicationTypesBusiness FindApplicationTypes(int ApplicationTypeID)
         {
             DataRow row = clsApplicationTypesDataAccess.FindApplicationTypes(ApplicationTypeID);
 
-            return new clsApplicationTypesBusiness(int.Parse(row["LicenseClassID"].ToString()), row["applicationTypeTitle"].ToString(), Convert.ToDecimal(row["MinimumAllowedAge"].ToString()));
+            return new clsApplicationTypesBusiness(int.Parse(row["ApplicationTypeID"].ToString()), row["applicationTypeTitle"].ToString(), Convert.ToDecimal(row["ApplicationFees"].ToString()));
         }
         private bool _Update()
         {

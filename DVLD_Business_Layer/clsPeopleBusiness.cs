@@ -12,7 +12,7 @@ namespace DVLD_Business_Layer
 {
     public class clsPeopleBusiness
     {
-        enum _enPersonMode { Update, AddNew }
+        public enum enPersonMode { Update, AddNew }
 
         public int PersonID { set;  get; }
         public string NationalNo { set; get; }
@@ -41,7 +41,7 @@ namespace DVLD_Business_Layer
         public clsCountriesBusiness CountryInfo {  set; get; } 
         public string ImagePath { set; get; }
 
-        _enPersonMode Mode;
+        public enPersonMode Mode { get; set; }
 
         public clsPeopleBusiness()
         {
@@ -59,7 +59,7 @@ namespace DVLD_Business_Layer
             NationalityCountryID = -1;
             ImagePath = "";
 
-            Mode = _enPersonMode.AddNew;
+            Mode = enPersonMode.AddNew;
         }
         private clsPeopleBusiness(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName,
                string LastName, DateTime DateOfBirth, byte Gendor, string Address,
@@ -80,7 +80,7 @@ namespace DVLD_Business_Layer
             this.CountryInfo = clsCountriesBusiness.Find(NationalityCountryID);
             this.ImagePath = ImagePath;
 
-            Mode = _enPersonMode.Update;
+            Mode = enPersonMode.Update;
         }
         private bool _AddNewPerson()
         {
@@ -137,16 +137,16 @@ namespace DVLD_Business_Layer
         {
             switch (Mode)
             {
-                case _enPersonMode.AddNew:
+                case enPersonMode.AddNew:
                     if (_AddNewPerson())
                     {
-                        Mode = _enPersonMode.Update;
+                        Mode = enPersonMode.Update;
                         return true;
                     }
                     else
                         return false;
 
-                case _enPersonMode.Update:
+                case enPersonMode.Update:
                     return _UpdatePerson() ;
             }
 

@@ -7,3 +7,14 @@ D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\obj\Debug\DVLD_Bu
 D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\obj\Debug\DVLD_Bus.9D06BE66.Up2Date
 D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\obj\Debug\DVLD_Business_Layer.dll
 D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\obj\Debug\DVLD_Business_Layer.pdb
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\bin\Debug\Microsoft.Web.WebView2.Core.dll
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\bin\Debug\Microsoft.Web.WebView2.WinForms.dll
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\bin\Debug\Newtonsoft.Json.dll
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\bin\Debug\Microsoft.Web.WebView2.Core.xml
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Business_Layer\bin\Debug\Newtonsoft.Json.xml

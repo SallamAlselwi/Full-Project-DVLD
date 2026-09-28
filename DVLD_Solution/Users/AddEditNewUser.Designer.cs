@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.searchPerson = new DVLD_Solution.UCSearchPerson();
             this.btnNext = new System.Windows.Forms.Button();
             this.tabpLoginInfo = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.labAddEidit = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabpLoginInfo.SuspendLayout();
@@ -58,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -106,8 +107,6 @@
             // 
             // tabpLoginInfo
             // 
-            this.tabpLoginInfo.Controls.Add(this.label7);
-            this.tabpLoginInfo.Controls.Add(this.label6);
             this.tabpLoginInfo.Controls.Add(this.label5);
             this.tabpLoginInfo.Controls.Add(this.txtConfirmPassword);
             this.tabpLoginInfo.Controls.Add(this.label3);
@@ -129,28 +128,6 @@
             this.tabpLoginInfo.Text = "LoginInfo";
             this.tabpLoginInfo.UseVisualStyleBackColor = true;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label7.Location = new System.Drawing.Point(425, 217);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(16, 21);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "!";
-            this.label7.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label6.Location = new System.Drawing.Point(425, 130);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(16, 21);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "!";
-            this.label6.Visible = false;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -168,7 +145,7 @@
             this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(182, 24);
             this.txtConfirmPassword.TabIndex = 3;
-            this.txtConfirmPassword.Leave += new System.EventHandler(this.txtConfirmPassword_Leave);
+            this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirmPassword_Validating);
             // 
             // label3
             // 
@@ -187,6 +164,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(182, 24);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
             // label4
             // 
@@ -224,7 +202,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(182, 24);
             this.txtUserName.TabIndex = 1;
-            this.txtUserName.Leave += new System.EventHandler(this.txtUserName_Leave);
+            this.txtUserName.Validating += new System.ComponentModel.CancelEventHandler(this.txtUserName_Validating);
             // 
             // label1
             // 
@@ -313,6 +291,10 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // AddEditNewUser
             // 
             this.AcceptButton = this.btnSave;
@@ -336,6 +318,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,8 +346,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private UCSearchPerson searchPerson;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -14,14 +14,14 @@ namespace DVLD_Business_Layer
 {
     public class clsUsersBusines
     {
-        enum _enUserMode {AddNew, Update }
+        public enum enUserMode {New, Update }
         public int UserID { get; set; }
         public int PersonID { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
         public clsPeopleBusiness Person {  get; set; }
-        _enUserMode Mode { get; set; }
+        public enUserMode Mode { get; set; }
         public clsUsersBusines()
         {
             this.UserID = -1;
@@ -30,7 +30,7 @@ namespace DVLD_Business_Layer
             this.IsActive = false;
             this.Person = new clsPeopleBusiness();
 
-            this.Mode = _enUserMode.AddNew;
+            this.Mode = enUserMode.New;
         }
         public clsUsersBusines(int UserID, int PersonID, string UserName, string Password, bool IsActive)
         {
@@ -42,7 +42,7 @@ namespace DVLD_Business_Layer
 
             Person = clsPeopleBusiness.Find(PersonID);
 
-            this.Mode = _enUserMode.Update;
+            this.Mode = enUserMode.Update;
         }
         static public clsUsersBusines GetUserByUserNameAndPassword(string UserName, string Password)
         {
@@ -60,6 +60,11 @@ namespace DVLD_Business_Layer
         static async public Task<DataTable> GetAllUsers()
         {
             return await clsUsersDataAccess.GetAllUsers();
+
+        }
+        static async public Task<DataTable> GetUsersReport()
+        {
+            return await clsUsersDataAccess.GetUsersReport();
 
         }
         bool _AddNewUser()
@@ -104,9 +109,9 @@ namespace DVLD_Business_Layer
 
             switch (this.Mode)
             {
-                case _enUserMode.AddNew: 
+                case enUserMode.New: 
                     if (_AddNewUser()){
-                        this.Mode = _enUserMode.Update;
+                        this.Mode = enUserMode.Update;
                         IsSuccessful = true;
                     }
                     else
@@ -115,7 +120,7 @@ namespace DVLD_Business_Layer
                     }
                     break;
 
-                case _enUserMode.Update: 
+                case enUserMode.Update: 
                     IsSuccessful = _UpdateUser(); break;
 
                     default: return false;

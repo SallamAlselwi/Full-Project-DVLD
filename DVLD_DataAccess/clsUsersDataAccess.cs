@@ -49,6 +49,54 @@ namespace DVLD_DataAccess
 
             return dataTable;
         }
+        static public async Task<DataTable> GetUsersReport()
+        {
+            DataTable dataTable = new DataTable();
+
+            SqlConnection _connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"  SELECT U.UserID,P.NationalNo,U.UserName,
+                                    P.FirstName + ' ' + P.SecondName + ' ' + ISNULL(P.ThirdName, '') + ' ' + P.LastName AS FullName,
+                                    P.Phone,
+                                    U.IsActive,
+                                    Gendor = 
+			                                case
+				                                when P.Gendor = 0 then 'Male'
+				                                else 
+					                                'Female'
+			                                end,
+                                    Age = DATEDIFF(YEAR, P.DateOfBirth, GETDATE()),
+                                    P.Email,
+                                    Nationlity = (select C.CountryName from Countries C where P.NationalityCountryID = C.CountryID)
+                                FROM Users U
+                                INNER JOIN People P ON U.PersonID = P.PersonID;";
+
+            SqlCommand cmd = new SqlCommand(query, _connection);
+
+            try
+            {
+                await _connection.OpenAsync();
+
+                SqlDataReader Reader = cmd.ExecuteReader();
+
+                if (Reader.HasRows)
+                {
+                    dataTable.Load(Reader);
+                }
+                _connection.Close();
+            }
+            catch (Exception ex)
+            {
+                _connection.Close();
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return dataTable;
+        }
         
         //static public bool GetUserByID(int UsersID, ref int UserID, ref string UserName, ref string Password, ref bool IsActive)
         //{

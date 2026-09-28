@@ -34,7 +34,7 @@ namespace DVLD_Business_Layer
         {
             DataRow row = clsTestTypesDataAccess.FindTestTypes(TestTypeID);
             if(row != null)
-                return new clsTestTypesBusiness(int.Parse(row["LicenseClassID"].ToString()), row["ClassName"].ToString(), row["TestTypeDescription"].ToString(), Convert.ToDecimal(row["MinimumAllowedAge"].ToString()));
+                return new clsTestTypesBusiness(int.Parse(row["TestTypeID"].ToString()), row["TestTypeTitle"].ToString(), row["TestTypeDescription"].ToString(), Convert.ToDecimal(row["TestTypeFees"].ToString()));
             else
                 return null;
         }

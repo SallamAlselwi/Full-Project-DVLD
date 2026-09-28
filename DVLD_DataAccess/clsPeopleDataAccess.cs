@@ -109,7 +109,6 @@ namespace DVLD_DataAccess
 
                 if(Reader.Read())
                 {   
-                    result = true;
 
                     NationalNo = Reader["NationalNo"].ToString();
                     FirstName = Reader["FirstName"].ToString();
@@ -138,6 +137,7 @@ namespace DVLD_DataAccess
                     else
                         ImagePath = "";
                     
+                    result = true;
                 }
                 else
                 {
@@ -177,7 +177,6 @@ namespace DVLD_DataAccess
 
                 if(Reader.Read())
                 {   
-                    result = true;
 
                     PersonID = int.Parse(Reader["PersonID"].ToString());
                     FirstName = Reader["FirstName"].ToString();
@@ -206,6 +205,7 @@ namespace DVLD_DataAccess
                     else
                         ImagePath = "";
                     
+                    result = true;
                 }
                 else
                 {

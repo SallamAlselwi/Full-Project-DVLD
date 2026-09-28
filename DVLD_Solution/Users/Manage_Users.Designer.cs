@@ -92,6 +92,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -99,6 +101,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(-4, 262);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -106,6 +109,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1214, 277);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.TabStop = false;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
             // contextMenuStrip1
@@ -220,9 +224,10 @@
             // 
             // btnAddPerson
             // 
-            this.btnAddPerson.Location = new System.Drawing.Point(1113, 199);
+            this.btnAddPerson.Image = global::DVLD_Solution.Properties.Resources.Add_New_User_72;
+            this.btnAddPerson.Location = new System.Drawing.Point(1113, 187);
             this.btnAddPerson.Name = "btnAddPerson";
-            this.btnAddPerson.Size = new System.Drawing.Size(83, 57);
+            this.btnAddPerson.Size = new System.Drawing.Size(83, 69);
             this.btnAddPerson.TabIndex = 4;
             this.btnAddPerson.UseVisualStyleBackColor = true;
             this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);

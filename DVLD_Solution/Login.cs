@@ -26,7 +26,7 @@ namespace DVLD_Solution
 
         void _SaveRemamberMe()
         {
-            StreamWriter streamWriter = new StreamWriter(@"D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Solution\Remamber me.txt");
+            StreamWriter streamWriter = new StreamWriter("Remamber me.txt");
             if (checkRemamber.Checked)
             {
                 streamWriter.WriteLine(txtUserName.Text);
@@ -41,7 +41,7 @@ namespace DVLD_Solution
         }
         void _GetRemamberMe()
         {
-            StreamReader streamReader = new StreamReader(@"D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Solution\Remamber me.txt");
+            StreamReader streamReader = new StreamReader(@"Remamber me.txt");
 
             while (!streamReader.EndOfStream)
             {

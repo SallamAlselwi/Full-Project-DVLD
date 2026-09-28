@@ -68,10 +68,10 @@ namespace DVLD_Solution
                 tbLastName.Focus();
                 return false;
             }
-            else if (string.IsNullOrWhiteSpace(tbNationsalNo.Text))
+            else if (string.IsNullOrWhiteSpace(txtNationalNo.Text))
             {
                 MessageBox.Show("This Field is Required!", "Required Field", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tbNationsalNo.Focus();
+                txtNationalNo.Focus();
                 return false;
             }
             else if (string.IsNullOrWhiteSpace(tbAdress.Text))
@@ -94,12 +94,12 @@ namespace DVLD_Solution
             label1.Text = "Update Person";
 
             labPersonID.Text = person.PersonID.ToString();
-            tbNationsalNo.Text = person.NationalNo;
+            txtNationalNo.Text = person.NationalNo;
             tbFirstName.Text = person.FirstName;
             tbSecondName.Text = person.SecondName;
             tbThirdName.Text = person.ThirdName;
             tbLastName.Text = person.LastName;
-            tbEmail.Text = person.Email;
+            txtEmail.Text = person.Email;
             tbPhone.Text = person.Phone;
             DateOfBith.Value = person.DateOfBirth;
             gender = person.Gender;
@@ -125,12 +125,12 @@ namespace DVLD_Solution
         }
         void FullThePerson()
         {
-            person.NationalNo = tbNationsalNo.Text;
+            person.NationalNo = txtNationalNo.Text;
             person.FirstName = tbFirstName.Text;
             person.SecondName = tbSecondName.Text;
             person.ThirdName = tbThirdName.Text;
             person.LastName = tbLastName.Text;
-            person.Email = tbEmail.Text;
+            person.Email = txtEmail.Text;
             person.Phone = tbPhone.Text;
             person.Address = tbAdress.Text;
             person.DateOfBirth = DateOfBith.Value;
@@ -160,23 +160,6 @@ namespace DVLD_Solution
         private void AddEditPersonInfo_Load(object sender, EventArgs e)
         {
             openFileDialog1.FileName = "";
-        }
-
-        private void tbNationsalNo_Leave(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            
-            if (clsPeopleBusiness.IsPersonExist(textBox.Text) /*&& person.PersonID < 0*/)
-            {
-                label17.Visible = true;
-                checkNationsalNo = textBox.Text;
-            }
-            else
-            {
-                label17.Visible = false;
-                textBox.Tag = "T";
-            }
-            
         }
 
         private void tbFirstName_KeyPress(object sender, KeyPressEventArgs e)
@@ -249,8 +232,6 @@ namespace DVLD_Solution
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
-            DataBack?.Invoke(person.PersonID);
-
             person = null;
 
             this.Close();
@@ -260,7 +241,7 @@ namespace DVLD_Solution
         {
             if (IsAllDataFill())
             {
-                if (checkNationsalNo != tbNationsalNo.Text)
+                if (checkNationsalNo != txtNationalNo.Text)
                 {
                     FullThePerson();
                    
@@ -270,6 +251,9 @@ namespace DVLD_Solution
                         MessageBox.Show($"Unsuccesfully {label1.Text.Remove(label1.Text.IndexOf(' '))}");
 
                     labPersonID.Text = person.PersonID.ToString();
+
+
+                    DataBack?.Invoke(person.PersonID);
                 }
                 else
                 {
@@ -279,17 +263,62 @@ namespace DVLD_Solution
             }
         }
 
-        private void tbEmail_Leave(object sender, EventArgs e)
+        private void tbNationsalNo_Validating(object sender, CancelEventArgs e)
         {
-            if(tbEmail.Text != "")
+            if (string.IsNullOrEmpty(txtNationalNo.Text.Trim()))
             {
-                if (!tbEmail.Text.Contains('@') || !tbEmail.Text.Contains(".com"))
-                    label3.Visible = true;
-                else
-                    label3.Visible = false;
+                e.Cancel = true;
+                errorProvider1.SetError(txtNationalNo, "This field is required!");
+                return;
             }
             else
-                label3.Visible = false;
+            {
+                errorProvider1.SetError(txtNationalNo, null);
+            }
+
+            if (clsPeopleBusiness.IsPersonExist(txtNationalNo.Text.Trim()) && person.Mode != clsPeopleBusiness.enPersonMode.Update)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtNationalNo, "National Number is used for another person!");
+
+            }
+            else
+            {
+                errorProvider1.SetError(txtNationalNo, null);
+            }
+        }
+
+        private void tbEmail_Validating(object sender, CancelEventArgs e)
+        {
+            //no need to validate the email incase it's empty.
+            if (txtEmail.Text.Trim() == "")
+                return;
+
+            //validate email format
+            if (clsPeopleBusiness.IsEmailFound(txtEmail.Text) && person.Mode != clsPeopleBusiness.enPersonMode.Update)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtEmail, "Invalid Email Address Format!");
+            }
+            else
+            {
+                errorProvider1.SetError(txtEmail, null);
+            };
+        }
+
+        private void tbFirstName_Validating(object sender, CancelEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (string.IsNullOrEmpty(textBox.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(textBox, "This field is required!");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(textBox, null);
+            }
         }
     }
 }

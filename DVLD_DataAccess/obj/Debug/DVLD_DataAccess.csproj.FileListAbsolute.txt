@@ -4,3 +4,15 @@ D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\obj\Debug\DVLD_DataAc
 D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\obj\Debug\DVLD_DataAccess.csproj.CoreCompileInputs.cache
 D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\obj\Debug\DVLD_DataAccess.dll
 D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\obj\Debug\DVLD_DataAccess.pdb
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\bin\Debug\Microsoft.Web.WebView2.Core.dll
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\bin\Debug\Microsoft.Web.WebView2.WinForms.dll
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\bin\Debug\Newtonsoft.Json.dll
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\bin\Debug\Microsoft.Web.WebView2.Core.xml
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\bin\Debug\Newtonsoft.Json.xml
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_DataAccess\obj\Debug\DVLD_Dat.AAF49C98.Up2Date

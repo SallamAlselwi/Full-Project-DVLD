@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditPersonInfo));
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -40,7 +41,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnRemoveImage = new System.Windows.Forms.Button();
             this.btnSetImage = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pctImage = new System.Windows.Forms.PictureBox();
@@ -65,16 +65,16 @@
             this.rdMale = new System.Windows.Forms.RadioButton();
             this.tbSecondName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.tbEmail = new System.Windows.Forms.TextBox();
-            this.tbNationsalNo = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtNationalNo = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.labPersonID = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -87,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox9
@@ -203,17 +204,6 @@
             this.btnSetImage.Text = "Set Image";
             this.btnSetImage.UseVisualStyleBackColor = true;
             this.btnSetImage.Click += new System.EventHandler(this.btnSetImage_Click);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label17.Location = new System.Drawing.Point(295, 103);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(16, 21);
-            this.label17.TabIndex = 42;
-            this.label17.Text = "!";
-            this.label17.Visible = false;
             // 
             // btnSave
             // 
@@ -349,6 +339,7 @@
             this.tbLastName.Size = new System.Drawing.Size(132, 24);
             this.tbLastName.TabIndex = 3;
             this.tbLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFirstName_KeyPress);
+            this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this.tbFirstName_Validating);
             // 
             // label11
             // 
@@ -435,6 +426,7 @@
             this.tbSecondName.Size = new System.Drawing.Size(132, 24);
             this.tbSecondName.TabIndex = 1;
             this.tbSecondName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFirstName_KeyPress);
+            this.tbSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.tbFirstName_Validating);
             // 
             // label7
             // 
@@ -446,23 +438,23 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "Email:";
             // 
-            // tbEmail
+            // txtEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(157, 204);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(132, 24);
-            this.tbEmail.TabIndex = 9;
-            this.tbEmail.Tag = "tbEmail";
-            this.tbEmail.Leave += new System.EventHandler(this.tbEmail_Leave);
+            this.txtEmail.Location = new System.Drawing.Point(157, 204);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(132, 24);
+            this.txtEmail.TabIndex = 9;
+            this.txtEmail.Tag = "tbEmail";
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEmail_Validating);
             // 
-            // tbNationsalNo
+            // txtNationalNo
             // 
-            this.tbNationsalNo.Location = new System.Drawing.Point(157, 100);
-            this.tbNationsalNo.Name = "tbNationsalNo";
-            this.tbNationsalNo.Size = new System.Drawing.Size(132, 24);
-            this.tbNationsalNo.TabIndex = 4;
-            this.tbNationsalNo.Tag = "tdNationsalNo";
-            this.tbNationsalNo.Leave += new System.EventHandler(this.tbNationsalNo_Leave);
+            this.txtNationalNo.Location = new System.Drawing.Point(157, 100);
+            this.txtNationalNo.Name = "txtNationalNo";
+            this.txtNationalNo.Size = new System.Drawing.Size(132, 24);
+            this.txtNationalNo.TabIndex = 4;
+            this.txtNationalNo.Tag = "txtNationalNo";
+            this.txtNationalNo.Validating += new System.ComponentModel.CancelEventHandler(this.tbNationsalNo_Validating);
             // 
             // tbFirstName
             // 
@@ -471,6 +463,7 @@
             this.tbFirstName.Size = new System.Drawing.Size(132, 24);
             this.tbFirstName.TabIndex = 0;
             this.tbFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFirstName_KeyPress);
+            this.tbFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.tbFirstName_Validating);
             // 
             // label4
             // 
@@ -488,9 +481,9 @@
             this.label5.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(6, 106);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 17);
+            this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Nationsal NO:";
+            this.label5.Text = "National NO:";
             // 
             // label6
             // 
@@ -504,7 +497,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.pictureBox9);
             this.groupBox1.Controls.Add(this.pictureBox8);
             this.groupBox1.Controls.Add(this.pictureBox7);
@@ -516,7 +508,6 @@
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.btnRemoveImage);
             this.groupBox1.Controls.Add(this.btnSetImage);
-            this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.btnClose);
             this.groupBox1.Controls.Add(this.pctImage);
@@ -538,8 +529,8 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.tbSecondName);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.tbEmail);
-            this.groupBox1.Controls.Add(this.tbNationsalNo);
+            this.groupBox1.Controls.Add(this.txtEmail);
+            this.groupBox1.Controls.Add(this.txtNationalNo);
             this.groupBox1.Controls.Add(this.tbFirstName);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
@@ -549,17 +540,6 @@
             this.groupBox1.Size = new System.Drawing.Size(870, 453);
             this.groupBox1.TabIndex = 60;
             this.groupBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label3.Location = new System.Drawing.Point(295, 206);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(16, 21);
-            this.label3.TabIndex = 56;
-            this.label3.Text = "!";
-            this.label3.Visible = false;
             // 
             // label8
             // 
@@ -581,6 +561,10 @@
             this.labPersonID.TabIndex = 59;
             this.labPersonID.Text = "N/A";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // AddEditPersonInfo
             // 
             this.AcceptButton = this.btnSave;
@@ -594,7 +578,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labPersonID);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddEditPersonInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNew\\ Edit\\ Person Info";
@@ -612,6 +596,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -630,7 +615,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnRemoveImage;
         private System.Windows.Forms.Button btnSetImage;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.PictureBox pctImage;
@@ -655,8 +639,8 @@
         private System.Windows.Forms.RadioButton rdMale;
         private System.Windows.Forms.TextBox tbSecondName;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.TextBox tbNationsalNo;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtNationalNo;
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -664,6 +648,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label labPersonID;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -114,7 +114,7 @@ namespace DVLD_DataAccess
             }
             catch
             {
-                dt.Load(null);
+                dt = null;
             }
             finally
             {
@@ -124,6 +124,60 @@ namespace DVLD_DataAccess
 
             return dt.Rows[0];
         }
-    
+        public static bool GetApplicationTypeInfoByID(int ApplicationTypeID,
+            ref string ApplicationTypeTitle, ref decimal ApplicationFees)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT * FROM ApplicationTypes WHERE ApplicationTypeID = @ApplicationTypeID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+
+                    // The record was found
+                    isFound = true;
+
+                    ApplicationTypeTitle = (string)reader["ApplicationTypeTitle"];
+                    ApplicationFees = Convert.ToDecimal(reader["ApplicationFees"]);
+
+
+
+
+
+                }
+                else
+                {
+                    // The record was not found
+                    isFound = false;
+                }
+
+                reader.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
     }
 }

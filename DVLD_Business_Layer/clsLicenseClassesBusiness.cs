@@ -11,6 +11,7 @@ namespace DVLD_Business_Layer
     public class clsLicenseClassesBusiness
     {
         enum _enMode { Update, AddNew }
+
         public int LicenseClassID { get; }
         public string ClassName { get; set; }
         public string ClassDescription { get; set; }
@@ -45,6 +46,21 @@ namespace DVLD_Business_Layer
             else
                 return null;
         }
+        public static clsLicenseClassesBusiness Find(string ClassName)
+        {
+            int LicenseClassID = -1; string ClassDescription = "";
+            byte MinimumAllowedAge = 18; byte DefaultValidityLength = 10; decimal ClassFees = 0;
+
+            if (clsLicenseClassesDataAccess.GetLicenseClassInfoByClassName(ClassName, ref LicenseClassID, ref ClassDescription,
+                    ref MinimumAllowedAge, ref DefaultValidityLength, ref ClassFees))
+
+                return new clsLicenseClassesBusiness(LicenseClassID, ClassName, ClassDescription,
+                    MinimumAllowedAge, DefaultValidityLength, ClassFees);
+            else
+                return null;
+
+        }
+
 
         //private bool _Update()
         //{
@@ -54,7 +70,7 @@ namespace DVLD_Business_Layer
         //{
         //    switch (this.Mode)
         //    {
-        //        case _enMode.Update: return _Update();
+        //        case enMode.Update: return _Update();
         //        default: return false;
         //    }
         //}

@@ -106,5 +106,20 @@ namespace DVLD_Solution
 
             applicationTypes.ShowDialog();
         }
+
+        private void localDrivingLicenseApplicationsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmMange_LocalDrivingLicenseApplication LDLA = new frmMange_LocalDrivingLicenseApplication();
+
+            LDLA.MdiParent = this;
+            LDLA.Show();
+        }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReports reports = new frmReports();
+
+            reports.ShowDialog();
+        }
     }
 }

@@ -113,40 +113,6 @@ namespace DVLD_Solution
             }
         }
 
-        private void txtUserName_Leave(object sender, EventArgs e)
-        {
-            if (!clsUsersBusines.IsUserNameExist(txtUserName.Text))
-            {
-                label6.Visible = false;
-            }
-            else
-            {
-                label6.Visible = true;
-
-            }
-
-            //if (clsUsersBusines.IsUserNameExist(txtUserName.Text))
-            //{
-            //    label6.Visible = true;
-            //    txtUserName.Focus();
-            //}
-            //else
-            //{
-            //    label6.Visible = false;
-            //}
-        }
-
-        private void txtConfirmPassword_Leave(object sender, EventArgs e)
-        {
-            if (_CheckPassword())
-            {
-                label7.Visible = false;
-            }
-            else
-            {
-                label7.Visible = true;
-            }
-        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -155,6 +121,75 @@ namespace DVLD_Solution
         private void txtUserName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtUserName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtUserName.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtUserName, "This field is required!");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtUserName, null);
+            }
+
+            if(user.Mode == clsUsersBusines.enUserMode.New)
+            {
+                if (clsUsersBusines.IsUserNameExist(txtUserName.Text))
+                {
+                    e.Cancel = true;
+                    errorProvider1.SetError(txtUserName, "Username is used for another person!");
+                }
+                else
+                {
+                    errorProvider1.SetError(txtUserName, null);
+                }
+            }
+            else
+            {
+                if (user.UserName != txtUserName.Text)
+                {
+                    if(clsUsersBusines.IsUserNameExist(txtUserName.Text))
+                    {
+                        e.Cancel = true;
+                        errorProvider1.SetError(txtUserName, "Username is used for another person!");
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(txtUserName, null);
+                    }
+                } 
+                
+            }
+        }
+
+        private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if(txtPassword.Text.Trim() != txtConfirmPassword.Text.Trim())
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtConfirmPassword, "Password Confirmation does not match Password!");
+            }
+            else
+            {
+                errorProvider1.SetError(txtConfirmPassword, null);
+            }
+        }
+
+        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPassword.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtPassword, "Password cannot be blank");
+            }
+            else
+            {
+                errorProvider1.SetError(txtPassword, null);
+            };
         }
     }
 }

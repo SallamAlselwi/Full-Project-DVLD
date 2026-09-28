@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقرير الأشخاص المسجلين - نظام رخص القيادة</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #1e3a8a;
+            --text-color: #334155;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #cbd5e1;
+            --header-bg: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            direction: rtl;
+        }
+
+        .report-card {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 1100px;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        /* هيدر التقرير */
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .system-info h2 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 22px;
+        }
+
+        .system-info p {
+            margin: 4px 0 0 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .report-meta {
+            text-align: left;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        /* كروت الإحصائيات السريعة */
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background-color: #f1f5f9;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border-right: 4px solid var(--accent-color);
+        }
+
+        .card-title {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .card-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* جدول البيانات */
+        .report-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .report-table th {
+            background-color: var(--header-bg);
+            color: #ffffff;
+            text-align: right;
+            padding: 10px 8px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .report-table td {
+            padding: 8px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-color);
+            white-space: nowrap;
+        }
+
+        .report-table tbody tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* التذييل والتواقيع */
+        .report-footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .signature-box {
+            text-align: center;
+            font-size: 12px;
+            color: #475569;
+        }
+
+        .signature-line {
+            margin-top: 30px;
+            width: 130px;
+            border-bottom: 1px solid #94a3b8;
+        }
+
+        /* شريط الأزرار */
+        .actions-bar {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            font-size: 13px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* قواعد الطباعة */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+
+            .report-card {
+                box-shadow: none;
+                border: none;
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            @page {
+                size: A4 landscape; /* اتجاه أفقي ليناسب عدد الأعمدة */
+                margin: 10mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div style="width: 100%; max-width: 1100px;">
+        
+        <div class="actions-bar no-print">
+            <button class="btn" onclick="window.print()">🖨️ طباعة التقرير</button>
+        </div>
+
+        <div class="report-card">
+            <!-- رأس التقرير -->
+            <div class="report-header">
+                <div class="system-info">
+                    <h2>إدارة ترخيص السائقين والمركبات (DVLD)</h2>
+                    <p>تقرير بيانات الأشخاص المسجلين في النظام</p>
+                </div>
+                <div class="report-meta">
+                    <div><strong>تاريخ الاستخراج:</strong> <span id="report-date"></span></div>
+                    <div><strong>نوع التقرير:</strong> سجل أصحاب طلبات الرخص</div>
+                </div>
+            </div>
+
+            <!-- ملخص الإحصائيات -->
+            <div class="summary-cards">
+                <div class="card">
+                    <div class="card-title">إجمالي المسجلين</div>
+                    <div class="card-value" id="total-count">0</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">عدد الذكور (Male)</div>
+                    <div class="card-value" id="male-count">0</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">عدد الإناث (Female)</div>
+                    <div class="card-value" id="female-count">0</div>
+                </div>
+            </div>
+
+            <!-- جدول البيانات المطابق لأعمدة الصورة -->
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>PersonID</th>
+                        <th>NationalNo</th>
+                        <th>الاسم الكامل (Full Name)</th>
+                        <th>تاريخ الميلاد</th>
+                        <th>الجنس</th>
+                        <th>الهاتف</th>
+                        <th>البريد الإلكتروني</th>
+                        <th>الجنسية</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- سيتم حقن البيانات ديناميكياً من C# عبر الجافاسكربت -->
+                </tbody>
+            </table>
+
+            <!-- التذييل والتواقيع -->
+            <div class="report-footer">
+                <div style="font-size: 11px; color: #94a3b8;">
+                    تنبيه: هذا المستند رسمي ومستخرج آلياً من قاعدة بيانات نظام DVLD.
+                </div>
+                <div style="display: flex; gap: 40px;">
+                    <div class="signature-box">
+                        توقيع مدخل البيانات
+                        <div class="signature-line"></div>
+                    </div>
+                    <div class="signature-box">
+                        اعتماد مدير الترخيص
+                        <div class="signature-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // ضبط تاريخ التقرير تلقائياً
+        document.getElementById('report-date').innerText = new Date().toISOString().split('T')[0];
+
+        // دالة استقبال البيانات من C# عبر JSON
+        function loadReportData(peopleData) {
+            const tbody = document.getElementById('table-body');
+            tbody.innerHTML = '';
+
+            let males = 0;
+            let females = 0;
+
+            peopleData.forEach(person => {
+                // تجميع الاسم الكامل من الأجزاء الأربعة
+                const fullName = `${person.firstName} ${person.secondName || ''} ${person.thirdName || ''} ${person.lastName}`.trim();
+                
+                // تنسيق تاريخ الميلاد لقطع وقت الساعة إن وجد
+                let birthDate = person.dateOfBirth;
+                if(birthDate && birthDate.includes(' ')) {
+                    birthDate = birthDate.split(' ')[0];
+                }
+
+                // حساب الجنس
+                if (person.gendor && person.gendor.toLowerCase() === 'male') males++;
+                else if (person.gendor && person.gendor.toLowerCase() === 'female') females++;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${person.personID}</strong></td>
+                    <td>${person.nationalNo}</td>
+                    <td>${fullName}</td>
+                    <td>${birthDate}</td>
+                    <td>${person.gendor}</td>
+                    <td>${person.phone || '-'}</td>
+                    <td>${person.email || '-'}</td>
+                    <td>${person.nationality}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // تحديث البطاقات
+            document.getElementById('total-count').innerText = peopleData.length;
+            document.getElementById('male-count').innerText = males;
+            document.getElementById('female-count').innerText = females;
+        }
+    </script>
+</body>
+</html>
