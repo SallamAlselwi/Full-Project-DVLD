@@ -1,6 +1,7 @@
 ﻿using DVLD_DataAccess;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,13 +48,13 @@ namespace DVLD_Business_Layer.Tests
             mode = Mode.Update;
         }
     
-        public static clsTestAppointmentsBusiness FindTestAppointment(int TestAppointmentID)
+        public static clsTestAppointmentsBusiness FindTestAppointment(int LocalDrivingLicenseApplicationID)
         {
             
             int TestTypeID = -1;
-            int LocalDrivingLicenseApplicationID = -1;
+            int TestAppointmentID = -1;
             DateTime AppointmentDate = DateTime.Now;
-            Decimal PaidFees = 0;
+            decimal PaidFees = 0;
             int CreatedByUserID = -1;
             bool IsLocked = false;
 
@@ -67,6 +68,11 @@ namespace DVLD_Business_Layer.Tests
                 return null;
             }
 
+        }
+
+        public static DataTable GetAppointmentDates(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            return clsTestAppointmentsDataAccess.GetAppointmentDates(LocalDrivingLicenseApplicationID, TestTypeID);
         }
 
         bool _AddNew()

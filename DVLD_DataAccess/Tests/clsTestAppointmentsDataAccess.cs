@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
@@ -18,7 +19,7 @@ namespace DVLD_DataAccess
             SqlConnection _connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"SELECT *FROM TestAppointments
-                              where TestAppointmentID = @TestAppointmentID;";
+                              where LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID;";
 
             SqlCommand cmd = new SqlCommand(query, _connection);
 
@@ -59,7 +60,7 @@ namespace DVLD_DataAccess
             return result;
         }
         
-        public static int AddNewTestAppointment(int TestTypeID, int LocalDrivingLicenseApplicationID, 
+        public static int AddNewTestAppointment(int TestTypeID, int LocalDrivingLicenseApplicationID,
                             DateTime AppointmentDate, decimal PaidFees, int CreatedByUserID, bool IsLocked)
         {
             int TestAppointmentID = -1;
@@ -148,6 +149,46 @@ namespace DVLD_DataAccess
 
             return (result >= 0);
         }
-    
+
+        public static DataTable GetAppointmentDates(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            DataTable dataTable = new DataTable();
+            SqlConnection _connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT AppointmentID = TestAppointmentID, AppointmentDate, PaidFees, IsLocked
+                                FROM TestAppointments TA
+                                WHERE TA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID 
+                                AND TA.TestTypeID = @TestTypeID
+                                ORDER BY ta.AppointmentDate DESC;";
+
+            SqlCommand cmd = new SqlCommand(query, _connection);
+
+            cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+            try
+            {
+                _connection.OpenAsync();
+                SqlDataReader Reader = cmd.ExecuteReader();
+
+                if (Reader.HasRows)
+                {
+                    dataTable.Load(Reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                _connection.Close();
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return dataTable;
+        }
+
+
     }
 }

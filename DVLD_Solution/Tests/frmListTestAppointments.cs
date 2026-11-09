@@ -1,5 +1,7 @@
 ﻿using DVLD_Business_Layer;
+using DVLD_Business_Layer.Tests;
 using DVLD_Solution.Properties;
+using DVLD_Solution.Tests.Tests_Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,48 +16,62 @@ namespace DVLD_Solution.Tests
 {
     public partial class frmListTestAppointments : Form
     {
-        clsLDLApplicationsBusiness LDL;
+        int LocalDrivingLicenseApplicationID;
+        
         clsTestTypesBusiness.enTestType TestType;
-        public frmListTestAppointments(int LDLAppID, clsTestTypesBusiness.enTestType testType)
+
+        clsTestAppointmentsBusiness testAppointmen;
+        public frmListTestAppointments(int LocalDrivingLicenseApplicationID, clsTestTypesBusiness.enTestType testType)
         {
             InitializeComponent();
-            
-            LDL = clsLDLApplicationsBusiness.FindByLocalDrivingAppLicenseID(LDLAppID);
+
+            this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
             this.TestType = testType;
         }
 
         void LoadeTestType()
         {
-            if (LDL != null)
+            switch (this.TestType)
             {
-                switch (this.TestType)
-                {
-                    case clsTestTypesBusiness.enTestType.Vision:
-                        labTitleTest.Text = "Vision Test Appointments";
-                        this.Text = labTitleTest.Text;
-                        pictureBoxTitle.Image = Resources.Vision_512;
-                        break;
+                case clsTestTypesBusiness.enTestType.Vision:
+                    labTitleTest.Text = "Vision Test Appointments";
+                    this.Text = labTitleTest.Text;
+                    pictureBoxTitle.Image = Resources.Vision_512;
+                    break;
 
-                    case clsTestTypesBusiness.enTestType.Written:
-                        labTitleTest.Text = "Written Test Appointments";
-                        this.Text = labTitleTest.Text;
-                        pictureBoxTitle.Image = Resources.Written_Test_512;
-                        break;
+                case clsTestTypesBusiness.enTestType.Written:
+                    labTitleTest.Text = "Written Test Appointments";
+                    this.Text = labTitleTest.Text;
+                    pictureBoxTitle.Image = Resources.Written_Test_512;
+                    break;
 
-                    case clsTestTypesBusiness.enTestType.PracticalStreet:
-                        labTitleTest.Text = "Street Test Appointments";
-                        this.Text = labTitleTest.Text;
-                        pictureBoxTitle.Image = Resources.driving_test_512;
-                        break;
+                case clsTestTypesBusiness.enTestType.PracticalStreet:
+                    labTitleTest.Text = "Street Test Appointments";
+                    this.Text = labTitleTest.Text;
+                    pictureBoxTitle.Image = Resources.driving_test_512;
+                    break;
                     
-                }
             }
+
+            ucDrivingLicenseApplicationInfo1.LoadData(LocalDrivingLicenseApplicationID);
+
+            dataGridView1.DataSource = clsTestAppointmentsBusiness.GetAppointmentDates(LocalDrivingLicenseApplicationID, (int)TestType);
+
+            labCountRecords.Text = dataGridView1.RowCount.ToString();
         }
 
         private void frmListTestAppointments_Load(object sender, EventArgs e)
         {
             LoadeTestType();
-            ucDrivingLicenseApplicationInfo1.LoadData(LDL.LocalDrivingLicenseApplicationID);
+
+        }
+
+        private void btnAddNewAppointment_Click(object sender, EventArgs e)
+        {
+            ScheduleTest scheduleTest = new ScheduleTest(LocalDrivingLicenseApplicationID, TestType);
+
+            scheduleTest.ShowDialog();
+            LoadeTestType();
         }
     }
 }

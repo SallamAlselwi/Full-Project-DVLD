@@ -21,7 +21,6 @@ namespace DVLD_Business_Layer
 
 
         public clsLDLApplicationsBusiness()
-
         {
             this.LocalDrivingLicenseApplicationID = -1;
             this.LicenseClassID = -1;
@@ -32,10 +31,9 @@ namespace DVLD_Business_Layer
         }
 
         private clsLDLApplicationsBusiness(int LocalDrivingLicenseApplicationID, int ApplicationID, int ApplicationPersonID,
-            DateTime ApplicationDate, int ApplicationTypeID,
+             DateTime ApplicationDate, int ApplicationTypeID,
              Status ApplicationStatus, DateTime LastStatusDate,
              decimal PaidFees, int CreatedByUserID, int LicenseClassID)
-
         {
             this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID; ;
             this.ApplicationID = ApplicationID;

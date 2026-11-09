@@ -164,6 +164,9 @@ namespace DVLD_Solution
                 CancelToolStripMenuItem.Enabled = false;
                 return;
             }
+            
+            toolStripMenuItem3.Enabled = true;
+            CancelToolStripMenuItem.Enabled = true;
 
             int PassedTestCount = int.Parse(dataGridView1.CurrentRow.Cells["PassedTestCount"].Value.ToString());
 

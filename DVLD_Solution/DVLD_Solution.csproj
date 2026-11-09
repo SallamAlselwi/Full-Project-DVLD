@@ -125,6 +125,12 @@
     <Compile Include="People\UCSearchPerson.Designer.cs">
       <DependentUpon>UCSearchPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tests\Tests Types\ScheduleTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests\Tests Types\ScheduleTest.Designer.cs">
+      <DependentUpon>ScheduleTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\frmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="People\UCSearchPerson.resx">
       <DependentUpon>UCSearchPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests\Tests Types\ScheduleTest.resx">
+      <DependentUpon>ScheduleTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
@@ -651,6 +660,7 @@
     <Content Include="Reports\DVLD Reports Users.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Count 321.png" />
     <None Include="Resources\ApplicationType1.png" />
     <None Include="Resources\PassedTests 32.png" />
     <None Include="Resources\Report.png" />

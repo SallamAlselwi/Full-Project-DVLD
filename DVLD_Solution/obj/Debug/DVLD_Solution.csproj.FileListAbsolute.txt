@@ -47,3 +47,4 @@ D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Solution\bin\Debug\Reports\DVLD 
 D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Solution\bin\Debug\Remamber me.txt
 D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Solution\obj\Debug\DVLD_Solution.Tests.Controls.UCDrivingLicenseApplicationInfo.resources
 D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Solution\obj\Debug\DVLD_Solution.Tests.frmListTestAppointments.resources
+D:\Programmer\Abu-Hadhoud\Stage 2\Level 19\DVLD_Solution\obj\Debug\DVLD_Solution.Tests.Tests_Types.ScheduleTest.resources
