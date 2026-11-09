@@ -31,7 +31,7 @@ namespace DVLD_Solution
                 labGender.Text = person.GenderTXT;
                 labEmail.Text = person.Email;
                 labAddress.Text = person.Address;
-                labDate.Text = person.DateOfBirth.ToString();
+                labDate.Text = clsFormat.DateToShort(person.DateOfBirth);
                 labPhone.Text = person.Phone;
                 labCountry.Text = person.CountryInfo.CountryName.ToString();
 

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drivers Directory Report - DVLD System</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #1e3a8a;
+            --text-color: #334155;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #cbd5e1;
+            --header-bg: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            direction: ltr;
+        }
+
+        .report-card {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 1100px;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Header Layout */
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .system-info h2 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 22px;
+        }
+
+        .system-info p {
+            margin: 4px 0 0 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .report-meta {
+            text-align: right;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        /* Summary Cards */
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background-color: #f1f5f9;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .card-title {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .card-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Data Table */
+        .report-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+            .report-table th {
+                background-color: var(--header-bg);
+                color: #ffffff;
+                text-align: left;
+                padding: 10px 8px;
+                font-weight: 600;
+                white-space: nowrap;
+            }
+
+            .report-table td {
+                padding: 8px;
+                border-bottom: 1px solid var(--border-color);
+                color: var(--text-color);
+                white-space: nowrap;
+            }
+
+            .report-table tbody tr:nth-child(even) {
+                background-color: #f8fafc;
+            }
+
+        /* Badge for International License */
+        .badge-yes {
+            background-color: #dcfce7;
+            color: #166534;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .badge-no {
+            background-color: #fee2e2;
+            color: #991b1b;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Footer & Signatures */
+        .report-footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .signature-box {
+            text-align: center;
+            font-size: 12px;
+            color: #475569;
+        }
+
+        .signature-line {
+            margin-top: 30px;
+            width: 140px;
+            border-bottom: 1px solid #94a3b8;
+        }
+
+        /* Action Buttons */
+        .actions-bar {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            font-size: 13px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Print Settings */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+
+            .report-card {
+                box-shadow: none;
+                border: none;
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            @page {
+                size: A4 landscape;
+                margin: 10mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div style="width: 100%; max-width: 1100px;">
+
+        <div class="actions-bar no-print">
+            <button class="btn" onclick="window.print()">🖨️ Print Report</button>
+        </div>
+
+        <div class="report-card">
+            <!-- Header -->
+            <div class="report-header">
+                <div class="system-info">
+                    <h2>Driver and Vehicle Licensing Department (DVLD)</h2>
+                    <p>Registered Drivers Directory Report</p>
+                </div>
+                <div class="report-meta">
+                    <div><strong>Generated On:</strong> <span id="report-date"></span></div>
+                    <div><strong>Report Type:</strong> Active Drivers List</div>
+                </div>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="card">
+                    <div class="card-title">Total Drivers</div>
+                    <div class="card-value" id="total-drivers">0</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Drivers with Local Licenses</div>
+                    <div class="card-value" id="local-licenses-total">0</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Drivers with Intl. Licenses</div>
+                    <div class="card-value" id="intl-licenses-total">0</div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>Driver ID</th>
+                        <th>National No</th>
+                        <th>Full Name</th>
+                        <th>Created Date</th>
+                        <th>Local Licenses Count</th>
+                        <th>Intl. License</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Dynamic Data populate via JavaScript -->
+                </tbody>
+            </table>
+
+            <!-- Footer -->
+            <div class="report-footer">
+                <div style="font-size: 11px; color: #94a3b8;">
+                    Notice: This is an official system-generated report from the DVLD database.
+                </div>
+                <div style="display: flex; gap: 40px;">
+                    <div class="signature-box">
+                        Data Entry Signature
+                        <div class="signature-line"></div>
+                    </div>
+                    <div class="signature-box">
+                        Licensing Authority Officer
+                        <div class="signature-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Set currentDate automatically
+        document.getElementById('report-date').innerText = new Date().toISOString().split('T')[0];
+
+        // JavaScript function to receive JSON data from C#
+        function loadReportData(driversData) {
+            const tbody = document.getElementById('table-body');
+            tbody.innerHTML = '';
+
+            let totalLocalLicenses = 0;
+            let totalIntlDrivers = 0;
+
+            driversData.forEach(driver => {
+                // Format Created Date
+                let createdDate = driver.CreatedDate;
+                if (createdDate && createdDate.includes(' ')) {
+                    createdDate = createdDate.split(' ')[0];
+                }
+
+                totalLocalLicenses += Number(driver.LocalLicensesCount || 0);
+
+                const hasIntl = driver.HasInternationalLicense === 'Yes';
+                if (hasIntl) totalIntlDrivers++;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                        <td><strong>${driver.DriverID}</strong></td>
+                        <td>${driver.NationalNo}</td>
+                        <td>${driver.FullName}</td>
+                        <td>${createdDate}</td>
+                        <td><span style="font-weight: bold; color: var(--accent-color);">${driver.LocalLicensesCount}</span></td>
+                        <td><span class="${hasIntl ? 'badge-yes' : 'badge-no'}">${driver.HasInternationalLicense}</span></td>
+                    `;
+                tbody.appendChild(tr);
+            });
+
+            // Update Summary Cards
+            document.getElementById('total-drivers').innerText = driversData.length;
+            document.getElementById('local-licenses-total').innerText = totalLocalLicenses;
+            document.getElementById('intl-licenses-total').innerText = totalIntlDrivers;
+        }
+    </script>
+</body>
+</html>

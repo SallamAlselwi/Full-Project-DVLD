@@ -1,4 +1,5 @@
 ﻿using DVLD_Business_Layer;
+using DVLD_Solution.Applications.International_Licenses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,12 +19,6 @@ namespace DVLD_Solution
         {
             InitializeComponent();
         }
-        //public Main(clsUsersBusines user)
-        //{
-        //    InitializeComponent();
-
-        //    this.user = user;
-        //}
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -54,7 +49,6 @@ namespace DVLD_Solution
             }
         }
 
-
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(clsGlobal.user != null)
@@ -74,16 +68,6 @@ namespace DVLD_Solution
 
                 fmrChangePassword.ShowDialog();
             }
-        }
-
-        private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void internationalLicenseApplicetionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -120,6 +104,61 @@ namespace DVLD_Solution
             frmReports reports = new frmReports();
 
             reports.ShowDialog();
+        }
+
+        private void driversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManage_Drivers drivers = new frmManage_Drivers();
+            drivers.ShowDialog();
+        }
+
+        private void internationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewInternationalLicensesApplication NewInternationalLicensesApplication = new frmNewInternationalLicensesApplication();
+
+            NewInternationalLicensesApplication.ShowDialog();
+        }
+
+        private void internationalLicenseApplicetionsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmMangeInterNationalDrivingLicenseApplication MangeInterNationalDrivingLicenseApplication = new frmMangeInterNationalDrivingLicenseApplication();
+
+            MangeInterNationalDrivingLicenseApplication.ShowDialog();
+        }
+
+        private void renewDrivingLienseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRenewDrivingLicense frmRenewDrivingLicense = new frmRenewDrivingLicense();
+
+            frmRenewDrivingLicense.ShowDialog();
+        }
+
+        private void replacementForLostOrDamagedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReplacementLostDamagedLicense ReplacementLostDamagedLicense = new frmReplacementLostDamagedLicense();
+
+            ReplacementLostDamagedLicense.ShowDialog();
+        }
+
+        private void manageDetainedLicensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageDetainedLicenses ManageDetainedLicenses = new frmManageDetainedLicenses();
+
+            ManageDetainedLicenses.ShowDialog();
+        }
+
+        private void releseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReleaseLicenses DetainLicenses = new frmReleaseLicenses();
+
+            DetainLicenses.ShowDialog();
+        }
+
+        private void detainLicensesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmDetainLicenses DetainLicenses = new frmDetainLicenses();
+
+            DetainLicenses.ShowDialog();
         }
     }
 }

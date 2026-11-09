@@ -21,6 +21,8 @@ namespace DVLD_Solution.Tests
         clsTestTypesBusiness.enTestType TestType;
 
         clsTestAppointmentsBusiness testAppointmen;
+        bool resultTest = false;
+
         public frmListTestAppointments(int LocalDrivingLicenseApplicationID, clsTestTypesBusiness.enTestType testType)
         {
             InitializeComponent();
@@ -29,6 +31,13 @@ namespace DVLD_Solution.Tests
             this.TestType = testType;
         }
 
+        bool isLocked()
+        {
+            if(dataGridView1.Rows.Count<=0) 
+                return true;
+            
+            return Convert.ToBoolean(dataGridView1.CurrentRow.Cells["isLocked"].Value);
+        }
         void LoadeTestType()
         {
             switch (this.TestType)
@@ -68,10 +77,63 @@ namespace DVLD_Solution.Tests
 
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
-            ScheduleTest scheduleTest = new ScheduleTest(LocalDrivingLicenseApplicationID, TestType);
+            
+            if(!isLocked())
+            {
+                MessageBox.Show("Person Already have an active appointment for this test, You cannot add new appointment", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            ScheduleTest scheduleTest;
+            if(dataGridView1.Rows.Count<=0)
+            { 
+                scheduleTest = new ScheduleTest(LocalDrivingLicenseApplicationID, TestType); 
+            }
+            else
+            {
+
+                if (resultTest)
+                {
+                    MessageBox.Show("This person already passed this test before, you can only retake faild test", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                scheduleTest = new ScheduleTest(LocalDrivingLicenseApplicationID, TestType, -1, true);
+
+            }
+            
 
             scheduleTest.ShowDialog();
             LoadeTestType();
+
+        }
+
+        private void eiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int AppointmentID = Convert.ToInt16(dataGridView1.CurrentRow.Cells["AppointmentID"].Value);
+            ScheduleTest scheduleTest = new ScheduleTest(LocalDrivingLicenseApplicationID, TestType, AppointmentID); 
+            
+            scheduleTest.ShowDialog();
+            LoadeTestType();
+        }
+
+        private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int AppointmentID = Convert.ToInt16(dataGridView1.CurrentRow.Cells["AppointmentID"].Value);
+
+            TakeTest takeTest = new TakeTest(LocalDrivingLicenseApplicationID, TestType, AppointmentID);
+            
+            takeTest.ShowDialog();
+            clsTestsBusiness Test = clsTestsBusiness.FindByTestAppointmentID(AppointmentID);
+            if(Test != null)
+                resultTest = Convert.ToBoolean(Test.TestResult);
+            LoadeTestType();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if (isLocked())
+                takeTestToolStripMenuItem.Enabled = false;
         }
     }
 }

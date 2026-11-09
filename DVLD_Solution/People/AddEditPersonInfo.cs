@@ -246,9 +246,9 @@ namespace DVLD_Solution
                     FullThePerson();
                    
                     if (person.Save())
-                        MessageBox.Show($"Succesfully {label1.Text.Remove(label1.Text.IndexOf(' '))}");
+                        MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
-                        MessageBox.Show($"Unsuccesfully {label1.Text.Remove(label1.Text.IndexOf(' '))}");
+                        MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     labPersonID.Text = person.PersonID.ToString();
 

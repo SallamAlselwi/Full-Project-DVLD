@@ -36,9 +36,12 @@ namespace DVLD_Solution
         }
         private void comFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtFilter.Text = string.Empty;
+
             if (comFilter.SelectedIndex >= 1)
             {
                 txtFilter.Visible = true;
+                txtFilter.Focus();
             }
             else
             {

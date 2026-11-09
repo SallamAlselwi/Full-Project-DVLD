@@ -17,9 +17,8 @@ namespace DVLD_DataAccess
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT *
-                              FROM ListLocalDrivingLicenseApplications_View
-                              order by ApplicationDate Desc";
+            string query = @"SELECT * FROM ListLocalDrivingLicenseApplications_View
+                              ORDER By Status DESC, ApplicationDate Desc";
 
 
 
@@ -199,6 +198,44 @@ namespace DVLD_DataAccess
                 if (reader.Read())
                 {
                     ApplicationID = int.Parse(reader["ApplicationID"].ToString());
+                    LicenseClassID = (int)reader["LicenseClassID"];
+
+                    rowsAffected = true;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+
+            return rowsAffected;
+        }
+        public static bool GetByApplicationID(ref int LocalDrivingLicenseApplicationID, int ApplicationID, ref int LicenseClassID)
+        {
+            bool rowsAffected = false;
+            SqlConnection _connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM LocalDrivingLicenseApplications L
+                            WHERE L.ApplicationID = @ApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, _connection);
+
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+            try
+            {
+                _connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+                
+                if (reader.Read())
+                {
+                    LocalDrivingLicenseApplicationID = int.Parse(reader["LocalDrivingLicenseApplicationID"].ToString());
                     LicenseClassID = (int)reader["LicenseClassID"];
 
                     rowsAffected = true;

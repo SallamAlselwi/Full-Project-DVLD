@@ -29,26 +29,28 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labTotalFees = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.labRTestAppID = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.labRAppFees = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.labFees = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.labTrial = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.labPersonName = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.labClassName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.labDLAppID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.labTitel = new System.Windows.Forms.Label();
-            this.labPersonName = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.labTrial = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.labFees = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.labRAppFees = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.labRTestAppID = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.labTotalFees = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -59,8 +61,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureTitel = new System.Windows.Forms.PictureBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -77,6 +78,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.pictureBox7);
@@ -105,6 +107,165 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vision Test";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.pictureBox10);
+            this.groupBox2.Controls.Add(this.labTotalFees);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.pictureBox9);
+            this.groupBox2.Controls.Add(this.labRTestAppID);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.pictureBox8);
+            this.groupBox2.Controls.Add(this.labRAppFees);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Enabled = false;
+            this.groupBox2.Location = new System.Drawing.Point(6, 538);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(475, 135);
+            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Retake Test Info";
+            // 
+            // labTotalFees
+            // 
+            this.labTotalFees.AutoSize = true;
+            this.labTotalFees.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.labTotalFees.Location = new System.Drawing.Point(381, 44);
+            this.labTotalFees.Name = "labTotalFees";
+            this.labTotalFees.Size = new System.Drawing.Size(21, 21);
+            this.labTotalFees.TabIndex = 31;
+            this.labTotalFees.Text = "0";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label18.Location = new System.Drawing.Point(241, 44);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(103, 21);
+            this.label18.TabIndex = 30;
+            this.label18.Text = "Total Fees:";
+            // 
+            // labRTestAppID
+            // 
+            this.labRTestAppID.AutoSize = true;
+            this.labRTestAppID.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.labRTestAppID.Location = new System.Drawing.Point(178, 83);
+            this.labRTestAppID.Name = "labRTestAppID";
+            this.labRTestAppID.Size = new System.Drawing.Size(45, 21);
+            this.labRTestAppID.TabIndex = 28;
+            this.labRTestAppID.Text = "N/A";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label16.Location = new System.Drawing.Point(8, 85);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(129, 21);
+            this.label16.TabIndex = 27;
+            this.label16.Text = "R.Test.AppID:";
+            // 
+            // labRAppFees
+            // 
+            this.labRAppFees.AutoSize = true;
+            this.labRAppFees.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.labRAppFees.Location = new System.Drawing.Point(178, 40);
+            this.labRAppFees.Name = "labRAppFees";
+            this.labRAppFees.Size = new System.Drawing.Size(21, 21);
+            this.labRAppFees.TabIndex = 25;
+            this.labRAppFees.Text = "0";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label14.Location = new System.Drawing.Point(27, 42);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(111, 21);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "R.App.Fees:";
+            // 
+            // labFees
+            // 
+            this.labFees.AutoSize = true;
+            this.labFees.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.labFees.Location = new System.Drawing.Point(172, 492);
+            this.labFees.Name = "labFees";
+            this.labFees.Size = new System.Drawing.Size(21, 21);
+            this.labFees.TabIndex = 21;
+            this.labFees.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label12.Location = new System.Drawing.Point(76, 492);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(55, 21);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Fees:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(176, 446);
+            this.dateTimePicker1.MinDate = new System.DateTime(2026, 10, 2, 0, 0, 0, 0);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(142, 24);
+            this.dateTimePicker1.TabIndex = 19;
+            this.dateTimePicker1.Value = new System.DateTime(2026, 10, 2, 0, 0, 0, 0);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label11.Location = new System.Drawing.Point(76, 445);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 21);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Date:";
+            // 
+            // labTrial
+            // 
+            this.labTrial.AutoSize = true;
+            this.labTrial.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.labTrial.Location = new System.Drawing.Point(172, 399);
+            this.labTrial.Name = "labTrial";
+            this.labTrial.Size = new System.Drawing.Size(56, 21);
+            this.labTrial.TabIndex = 14;
+            this.labTrial.Text = "[???]";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(76, 399);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 21);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Trial:";
+            // 
+            // labPersonName
+            // 
+            this.labPersonName.AutoSize = true;
+            this.labPersonName.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.labPersonName.Location = new System.Drawing.Point(172, 354);
+            this.labPersonName.Name = "labPersonName";
+            this.labPersonName.Size = new System.Drawing.Size(56, 21);
+            this.labPersonName.TabIndex = 11;
+            this.labPersonName.Text = "[???]";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(64, 354);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 21);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Name:";
             // 
             // labClassName
             // 
@@ -156,164 +317,29 @@
             this.labTitel.TabIndex = 1;
             this.labTitel.Text = "Schedule Test";
             // 
-            // labPersonName
+            // btnClose
             // 
-            this.labPersonName.AutoSize = true;
-            this.labPersonName.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.labPersonName.Location = new System.Drawing.Point(172, 354);
-            this.labPersonName.Name = "labPersonName";
-            this.labPersonName.Size = new System.Drawing.Size(56, 21);
-            this.labPersonName.TabIndex = 11;
-            this.labPersonName.Text = "[???]";
+            this.btnClose.Image = global::DVLD_Solution.Properties.Resources.Close_32;
+            this.btnClose.Location = new System.Drawing.Point(200, 778);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(102, 41);
+            this.btnClose.TabIndex = 25;
+            this.btnClose.Text = "Close";
+            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // label7
+            // btnSave
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(64, 354);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 21);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Name:";
-            // 
-            // labTrial
-            // 
-            this.labTrial.AutoSize = true;
-            this.labTrial.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.labTrial.Location = new System.Drawing.Point(172, 399);
-            this.labTrial.Name = "labTrial";
-            this.labTrial.Size = new System.Drawing.Size(56, 21);
-            this.labTrial.TabIndex = 14;
-            this.labTrial.Text = "[???]";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(76, 399);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 21);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "Trial:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(76, 445);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 21);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "Date:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(176, 446);
-            this.dateTimePicker1.MinDate = new System.DateTime(2026, 10, 2, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(142, 24);
-            this.dateTimePicker1.TabIndex = 19;
-            this.dateTimePicker1.Value = new System.DateTime(2026, 10, 2, 0, 0, 0, 0);
-            // 
-            // labFees
-            // 
-            this.labFees.AutoSize = true;
-            this.labFees.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.labFees.Location = new System.Drawing.Point(172, 492);
-            this.labFees.Name = "labFees";
-            this.labFees.Size = new System.Drawing.Size(21, 21);
-            this.labFees.TabIndex = 21;
-            this.labFees.Text = "0";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(76, 492);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(55, 21);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "Fees:";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.pictureBox10);
-            this.groupBox2.Controls.Add(this.labTotalFees);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.pictureBox9);
-            this.groupBox2.Controls.Add(this.labRTestAppID);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.pictureBox8);
-            this.groupBox2.Controls.Add(this.labRAppFees);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Enabled = false;
-            this.groupBox2.Location = new System.Drawing.Point(6, 538);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(475, 135);
-            this.groupBox2.TabIndex = 23;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Retake Test Info";
-            // 
-            // labRAppFees
-            // 
-            this.labRAppFees.AutoSize = true;
-            this.labRAppFees.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.labRAppFees.Location = new System.Drawing.Point(178, 40);
-            this.labRAppFees.Name = "labRAppFees";
-            this.labRAppFees.Size = new System.Drawing.Size(21, 21);
-            this.labRAppFees.TabIndex = 25;
-            this.labRAppFees.Text = "0";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(27, 42);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(111, 21);
-            this.label14.TabIndex = 24;
-            this.label14.Text = "R.App.Fees:";
-            // 
-            // labRTestAppID
-            // 
-            this.labRTestAppID.AutoSize = true;
-            this.labRTestAppID.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.labRTestAppID.Location = new System.Drawing.Point(178, 83);
-            this.labRTestAppID.Name = "labRTestAppID";
-            this.labRTestAppID.Size = new System.Drawing.Size(45, 21);
-            this.labRTestAppID.TabIndex = 28;
-            this.labRTestAppID.Text = "N/A";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(8, 85);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(129, 21);
-            this.label16.TabIndex = 27;
-            this.label16.Text = "R.Test.AppID:";
-            // 
-            // labTotalFees
-            // 
-            this.labTotalFees.AutoSize = true;
-            this.labTotalFees.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.labTotalFees.Location = new System.Drawing.Point(381, 44);
-            this.labTotalFees.Name = "labTotalFees";
-            this.labTotalFees.Size = new System.Drawing.Size(21, 21);
-            this.labTotalFees.TabIndex = 31;
-            this.labTotalFees.Text = "0";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(241, 44);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(103, 21);
-            this.label18.TabIndex = 30;
-            this.label18.Text = "Total Fees:";
+            this.btnSave.Image = global::DVLD_Solution.Properties.Resources.Save_32;
+            this.btnSave.Location = new System.Drawing.Point(360, 685);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(102, 41);
+            this.btnSave.TabIndex = 24;
+            this.btnSave.Text = "Save";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pictureBox10
             // 
@@ -414,29 +440,17 @@
             this.pictureTitel.TabIndex = 0;
             this.pictureTitel.TabStop = false;
             // 
-            // btnSave
+            // label1
             // 
-            this.btnSave.Image = global::DVLD_Solution.Properties.Resources.Save_32;
-            this.btnSave.Location = new System.Drawing.Point(360, 685);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(102, 41);
-            this.btnSave.TabIndex = 24;
-            this.btnSave.Text = "Save";
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Image = global::DVLD_Solution.Properties.Resources.Close_32;
-            this.btnClose.Location = new System.Drawing.Point(200, 778);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(102, 41);
-            this.btnClose.TabIndex = 25;
-            this.btnClose.Text = "Close";
-            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(52, 214);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(396, 18);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Person aleady sal for the test, appointment loacked.";
+            this.label1.Visible = false;
             // 
             // ScheduleTest
             // 
@@ -503,5 +517,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label label1;
     }
 }

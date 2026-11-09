@@ -84,7 +84,11 @@ namespace DVLD_Solution
         {
             if (!string.IsNullOrWhiteSpace(txtUserName.Text))
             {
-
+                if (clsUsersBusines.IsUserNameExist(txtUserName.Text))
+                {
+                    MessageBox.Show($"Username is used for another person!", title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 if (_CheckPassword())
                 {
                     user.Person   = searchPerson.personDetails.person;

@@ -59,13 +59,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsDetainedLicensesData.cs" />
+    <Compile Include="clsDriversData.cs" />
     <Compile Include="clsLDLApplicationsDataAccess.cs" />
     <Compile Include="clsDataAccessSettings.cs" />
     <Compile Include="clsCountriesDataAccess.cs" />
     <Compile Include="clsApplicationTypesDataAccess.cs" />
     <Compile Include="clsApplicationsDataAccess.cs" />
     <Compile Include="clsLicenseClassesDataAccess.cs" />
+    <Compile Include="clsInternationalLicensesData.cs" />
     <Compile Include="clsLicensesDataAccess.cs" />
+    <Compile Include="clsReportsData.cs" />
     <Compile Include="Tests\clsTestAppointmentsDataAccess.cs" />
     <Compile Include="Tests\clsTestsDataAccess.cs" />
     <Compile Include="Tests\clsTestTypesDataAccess.cs" />

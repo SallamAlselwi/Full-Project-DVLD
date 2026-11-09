@@ -37,7 +37,7 @@ namespace DVLD_Business_Layer
         {
             this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID; ;
             this.ApplicationID = ApplicationID;
-            this.ApplicantPersonID = ApplicationPersonID;
+            this.ApplicationPersonID = ApplicationPersonID;
             this.ApplicationDate = ApplicationDate;
             this.ApplicationTypeID = (int)ApplicationTypeID;
             this.ApplicationStatus = ApplicationStatus;
@@ -45,7 +45,7 @@ namespace DVLD_Business_Layer
             this.PaidFees = PaidFees;
             this.CreatedByUserID = CreatedByUserID;
             this.LicenseClassID = LicenseClassID;
-            //this.LicenseClassInfo = clsLicensesBuisness.Find(LicenseClassID);
+            //this.LicenseClassInfo = clsLicensesBuisness.FindByDriverID(LicenseClassID);
             Mode = enMode.Update;
         }
 
@@ -53,7 +53,7 @@ namespace DVLD_Business_Layer
         {
             get
             {
-                return clsPeopleBusiness.Find(ApplicantPersonID).FullName;
+                return clsPeopleBusiness.Find(ApplicationPersonID).FullName;
             }
 
         }
@@ -84,7 +84,26 @@ namespace DVLD_Business_Layer
                 clsApplicationBusiness Application = clsApplicationBusiness.FindBaseApplication(ApplicationID);
 
 
-                return new clsLDLApplicationsBusiness(LocalDrivingLicenseApplicationID, ApplicationID, Application.ApplicantPersonID,
+                return new clsLDLApplicationsBusiness(LocalDrivingLicenseApplicationID, ApplicationID, Application.ApplicationPersonID,
+                                                    Application.ApplicationDate, Application.ApplicationTypeID, Application.ApplicationStatus, Application.LastStatusDate,
+                                                    Application.PaidFees, Application.CreatedByUserID, LicenseClassID);
+            }
+            else
+                return null;
+
+        }
+        public static clsLDLApplicationsBusiness FindByApplicationID(int ApplicationID)
+        {
+            int LocalDrivingLicenseApplicationID = -1, LicenseClassID = -1;
+
+            bool isFound = clsLDLApplicationsDataAccess.GetByApplicationID(ref LocalDrivingLicenseApplicationID, ApplicationID, ref LicenseClassID);
+
+            if (isFound)
+            {
+                clsApplicationBusiness Application = clsApplicationBusiness.FindBaseApplication(ApplicationID);
+
+
+                return new clsLDLApplicationsBusiness(LocalDrivingLicenseApplicationID, ApplicationID, Application.ApplicationPersonID,
                                                     Application.ApplicationDate, Application.ApplicationTypeID, Application.ApplicationStatus, Application.LastStatusDate,
                                                     Application.PaidFees, Application.CreatedByUserID, LicenseClassID);
             }
@@ -101,6 +120,11 @@ namespace DVLD_Business_Layer
         public bool Cancel()
         {
             return clsApplicationsDataAccess.UpdateStatus(this.ApplicationID, 2);
+        }
+
+        public bool Completed()
+        {
+            return clsApplicationsDataAccess.UpdateStatus(this.ApplicationID, 3);
         }
         public bool Save()
         {

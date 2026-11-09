@@ -56,12 +56,58 @@ namespace DVLD_DataAccess
             return result;
         }
 
+        public static bool GetByTestAppointmentID(ref int TestID, int TestAppointmentID, ref bool TestResult,
+                                ref string Notes, ref int CreatedByUserID)
+        {
+            bool result = false;
+            SqlConnection _connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT *FROM Tests
+                              where TestAppointmentID = @TestAppointmentID;";
+
+            SqlCommand cmd = new SqlCommand(query, _connection);
+
+            cmd.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+
+            try
+            {
+                _connection.Open();
+                SqlDataReader Reader = cmd.ExecuteReader();
+
+                if (Reader.Read())
+                {
+                    TestID = Convert.ToInt16(Reader["TestID"]);
+                    TestResult = Convert.ToBoolean(Reader["TestResult"]);
+                    Notes = Convert.ToString(Reader["Notes"]);
+                    CreatedByUserID = Convert.ToInt16(Reader["CreatedByUserID"]);
+
+
+                    result = true;
+                }
+                else
+                {
+                    result = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                _connection.Close();
+                return result;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return result;
+        }
+
         public static int AddNewTest(int TestAppointmentID, bool TestResult, string Notes, int CreatedByUserID)
         {
             int ID = -1;
             SqlConnection _connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"Insert into Tests (TestAppointmentID, @TestResult, Notes, PaidFees, CreatedByUserID)
+            string query = @"Insert into Tests (TestAppointmentID, TestResult, Notes, CreatedByUserID)
                              VALUES(@TestAppointmentID, @TestResult, @Notes, @CreatedByUserID);
 
                              SELECT SCOPE_IDENTITY();";
@@ -135,5 +181,6 @@ namespace DVLD_DataAccess
 
             return Passed;
         }
+
     }
 }

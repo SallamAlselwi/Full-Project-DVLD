@@ -64,9 +64,13 @@
     <Compile Include="clsApplicationBusiness.cs" />
     <Compile Include="clsApplicationTypesBusiness.cs" />
     <Compile Include="clsCountriesBusiness.cs" />
+    <Compile Include="clsDetainedLicenses.cs" />
+    <Compile Include="clsDrivers.cs" />
     <Compile Include="clsLDLApplicationsBusiness.cs" />
     <Compile Include="clsLicenseClassesBusiness.cs" />
+    <Compile Include="clsInternationalLicenses.cs" />
     <Compile Include="clsLicensesBuisness.cs" />
+    <Compile Include="clsReports.cs" />
     <Compile Include="Tests\clsTestAppointmentsBusiness.cs" />
     <Compile Include="Tests\clsTestsBusiness.cs" />
     <Compile Include="Tests\clsTestTypesBusiness.cs" />

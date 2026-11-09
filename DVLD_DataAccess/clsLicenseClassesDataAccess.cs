@@ -112,15 +112,10 @@ namespace DVLD_DataAccess
                 {
                     dt.Load(reader);
                 }
-                else
-                {
-                    dt.Load(null);
-                }
 
             }
             catch
             {
-                dt.Load(null);
             }
             finally
             {

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications Directory Report - DVLD System</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #1e3a8a;
+            --text-color: #334155;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #cbd5e1;
+            --header-bg: #1e293b;
+            --status-new: #0284c7;
+            --status-cancelled: #dc2626;
+            --status-completed: #16a34a;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            direction: ltr;
+        }
+
+        .report-card {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 1200px;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Header Layout */
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .system-info h2 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 22px;
+        }
+
+        .system-info p {
+            margin: 4px 0 0 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .report-meta {
+            text-align: right;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        /* Summary Cards */
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background-color: #f1f5f9;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .card.new { border-left-color: var(--status-new); }
+        .card.cancelled { border-left-color: var(--status-cancelled); }
+        .card.completed { border-left-color: var(--status-completed); }
+
+        .card-title {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .card-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Data Table */
+        .report-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .report-table th {
+            background-color: var(--header-bg);
+            color: #ffffff;
+            text-align: left;
+            padding: 10px 8px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .report-table td {
+            padding: 8px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-color);
+            white-space: nowrap;
+        }
+
+        .report-table tbody tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Badges for Status */
+        .badge {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .badge-new { background-color: #e0f2fe; color: #0369a1; }
+        .badge-cancelled { background-color: #fee2e2; color: #991b1b; }
+        .badge-completed { background-color: #dcfce7; color: #166534; }
+
+        /* Footer & Signatures */
+        .report-footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .signature-box {
+            text-align: center;
+            font-size: 12px;
+            color: #475569;
+        }
+
+        .signature-line {
+            margin-top: 30px;
+            width: 140px;
+            border-bottom: 1px solid #94a3b8;
+        }
+
+        /* Action Buttons */
+        .actions-bar {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            font-size: 13px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Print Settings */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+
+            .report-card {
+                box-shadow: none;
+                border: none;
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            @page {
+                size: A4 landscape;
+                margin: 10mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div style="width: 100%; max-width: 1200px;">
+        
+        <div class="actions-bar no-print">
+            <button class="btn" onclick="window.print()">🖨️ Print Report</button>
+        </div>
+
+        <div class="report-card">
+            <!-- Header -->
+            <div class="report-header">
+                <div class="system-info">
+                    <h2>Driver and Vehicle Licensing Department (DVLD)</h2>
+                    <p>System Applications Directory Report</p>
+                </div>
+                <div class="report-meta">
+                    <div><strong>Generated On:</strong> <span id="report-date"></span></div>
+                    <div><strong>Report Type:</strong> Applications List</div>
+                </div>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="card">
+                    <div class="card-title">Total Applications</div>
+                    <div class="card-value" id="total-count">0</div>
+                </div>
+                <div class="card new">
+                    <div class="card-title">New Applications</div>
+                    <div class="card-value" id="new-count">0</div>
+                </div>
+                <div class="card cancelled">
+                    <div class="card-title">Cancelled Applications</div>
+                    <div class="card-value" id="cancelled-count">0</div>
+                </div>
+                <div class="card completed">
+                    <div class="card-title">Completed Applications</div>
+                    <div class="card-value" id="completed-count">0</div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>App ID</th>
+                        <th>Applicant Name</th>
+                        <th>Class Name</th>
+                        <th>Application Date</th>
+                        <th>Application Type</th>
+                        <th>Status</th>
+                        <!--<th>Last Status Date</th>-->
+                        <th>Paid Fees</th>
+                        <th>Created By User</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Dynamic Data populate via JavaScript -->
+                </tbody>
+            </table>
+
+            <!-- Footer -->
+            <div class="report-footer">
+                <div style="font-size: 11px; color: #94a3b8;">
+                    Notice: This is an official system-generated report from the DVLD database.
+                </div>
+                <div style="display: flex; gap: 40px;">
+                    <div class="signature-box">
+                        Data Entry Signature
+                        <div class="signature-line"></div>
+                    </div>
+                    <div class="signature-box">
+                        Licensing Authority Officer
+                        <div class="signature-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Set currentDate automatically
+        document.getElementById('report-date').innerText = new Date().toISOString().split('T')[0];
+
+        // JavaScript function to receive JSON data from C# / Backend
+        function loadReportData(applicationsData) {
+            const tbody = document.getElementById('table-body');
+            tbody.innerHTML = '';
+
+            let newCount = 0;
+            let cancelledCount = 0;
+            let completedCount = 0;
+
+            applicationsData.forEach(app => {
+                let badgeClass = '';
+                let statusText = app.ApplicationStatus;
+
+                // Handle status mapping & badges
+                if (statusText === '1' || statusText === 'New') {
+                    statusText = 'New';
+                    badgeClass = 'badge-new';
+                    newCount++;
+                } else if (statusText === '2' || statusText === 'Cancelled') {
+                    statusText = 'Cancelled';
+                    badgeClass = 'badge-cancelled';
+                    cancelledCount++;
+                } else if (statusText === '3' || statusText === 'Completed') {
+                    statusText = 'Completed';
+                    badgeClass = 'badge-completed';
+                    completedCount++;
+                }
+
+                // Format dates
+                let appDate = app.ApplicationDate ? app.ApplicationDate.replace('T', ' ').split('.')[0] : '-';
+                let lastStatusDate = app.LastStatusDate ? app.LastStatusDate.replace('T', ' ').split('.')[0] : '-';
+
+                const tr = document.createElement('tr');
+                tr.innerHTML =
+                    `
+                        <td><strong>${app.ApplicationID}</strong></td>
+                        <td>${app.ApplicantFullName}</td>
+                        <td>${app.ClassName}</td>
+                        <td>${app.ApplicationDate}</td>
+                        <td>${app.ApplicationTypeName}</td>
+                        <td><span class="badge ${badgeClass}">${statusText}</span></td>
+                        
+                        <td>$${parseFloat(app.PaidFees).toFixed(2)}</td>
+                        <td>${app.CreatedByUserName}</td>
+                    `;
+                tbody.appendChild(tr);
+            });
+
+            // Update Summary Cards
+            document.getElementById('total-count').innerText = applicationsData.length;
+            document.getElementById('new-count').innerText = newCount;
+            document.getElementById('cancelled-count').innerText = cancelledCount;
+            document.getElementById('completed-count').innerText = completedCount;
+        }
+
+        // Example mock data execution (Remove or overwrite from C# web browser control)
+        loadReportData([
+            {
+                ApplicationID: 43,
+                ApplicantFullName: "Sallam Ahmed",
+                ApplicationDate: "2023-09-23 20:17:32",
+                ApplicationTypeName: "Renew Driving License Service",
+                ApplicationStatus: "Cancelled",
+                LastStatusDate: "2023-09-23 20:17:59",
+                PaidFees: 20.00,
+                CreatedByUserName: "User1"
+            },
+            {
+                ApplicationID: 45,
+                ApplicantFullName: "Mohammed Ali",
+                ApplicationDate: "2023-09-23 20:32:17",
+                ApplicationTypeName: "New Local Driving License Service",
+                ApplicationStatus: "Completed",
+                LastStatusDate: "2023-09-23 20:44:05",
+                PaidFees: 15.00,
+                CreatedByUserName: "User1"
+            }
+        ]);
+    </script>
+</body>
+</html>

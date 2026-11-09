@@ -75,7 +75,8 @@ namespace DVLD_Solution
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(dataTUsers != null)
+            textBox1.Text = "";
+            if (dataTUsers != null)
             { 
                 if(comFilter.SelectedItem.ToString() == "IsActive")
                 {
@@ -86,6 +87,8 @@ namespace DVLD_Solution
                 {
                     comboBox1.Visible = false;
                     textBox1.Visible = true;
+
+                    textBox1.Focus();
                 }
                 else
                 {
@@ -111,7 +114,7 @@ namespace DVLD_Solution
                 else
                 dataGridView1.DataSource = dataTUsers;
             }
-            else if (comFilter.SelectedItem.ToString() == "PersonID" && comFilter.SelectedItem.ToString() != "UserID")
+            else if (comFilter.SelectedItem.ToString() == "PersonID" || comFilter.SelectedItem.ToString() == "UserID")
             {
                 if (textBox1.Text != "")
                 {    

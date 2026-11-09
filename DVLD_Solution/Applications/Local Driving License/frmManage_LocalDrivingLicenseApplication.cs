@@ -1,4 +1,5 @@
 ﻿using DVLD_Business_Layer;
+using DVLD_Solution.Applications;
 using DVLD_Solution.Tests;
 using System;
 using System.Collections.Generic;
@@ -60,7 +61,7 @@ namespace DVLD_Solution
             {
                 if (textBox1.Text != "")
                 {
-                    DataRow[] rows = DTApplications.Select($"{comFilter.SelectedItem.ToString()} = {int.Parse(textBox1.Text)}");
+                    DataRow[] rows = DTApplications.Select($"LocalDrivingLicenseApplicationID = {int.Parse(textBox1.Text)}");
 
                     if (rows.Length > 0)
                         dataGridView1.DataSource = rows.CopyToDataTable();
@@ -95,17 +96,21 @@ namespace DVLD_Solution
 
         private void comFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(DTApplications != null)
+            
+            if (DTApplications != null)
             {
-                if(comFilter.SelectedItem.ToString() == "Status")
+                textBox1.Text = "";
+                if (comFilter.SelectedItem.ToString() == "Status")
                 {
                     textBox1.Visible = false;
                     comboBox1.Visible = true;
+                    
                 }
                 else if(comFilter.SelectedIndex >= 1)
                 {
                     comboBox1.Visible = false;
                     textBox1.Visible = true;
+                    textBox1.Focus();
                 }
                 else
                 {
@@ -164,7 +169,22 @@ namespace DVLD_Solution
                 CancelToolStripMenuItem.Enabled = false;
                 return;
             }
-            
+            clsLDLApplicationsBusiness LDLA = clsLDLApplicationsBusiness.FindByLocalDrivingAppLicenseID(int.Parse(dataGridView1.CurrentRow.Cells["LocalDrivingLicenseApplicationID"].Value.ToString()));
+            if (clsLicensesBuisness.IsExist(LDLA.ApplicationID, LDLA.LicenseClassID))
+            {
+                eidtToolStripMenuItem.Enabled = false;
+                toolStripMenuItem1.Enabled = false;
+                CancelToolStripMenuItem.Enabled = false;
+                toolStripMenuItem3.Enabled = false;
+                IssueDringLicenseToolStripMenuItem.Enabled = false;
+
+                phoneCallToolStripMenuItem.Enabled = true;
+                ShowLicenseToolStripMenuItem.Enabled = true;
+
+
+                return;
+            }
+
             toolStripMenuItem3.Enabled = true;
             CancelToolStripMenuItem.Enabled = true;
 
@@ -174,23 +194,22 @@ namespace DVLD_Solution
             {
                 case 0: 
                     scheduleVisionTestToolStripMenuItem.Enabled = true;
-                    //scheduleWrittenTestToolStripMenuItem.Enabled = false;
-                    //scheduleStreetTestToolStripMenuItem.Enabled = false;
+                    scheduleWrittenTestToolStripMenuItem.Enabled = false;
+                    scheduleStreetTestToolStripMenuItem.Enabled = false;
                     break;
                 case 1: 
-                    //scheduleVisionTestToolStripMenuItem.Enabled = false;
+                    scheduleVisionTestToolStripMenuItem.Enabled = false;
                     scheduleWrittenTestToolStripMenuItem.Enabled = true;
-                    //scheduleStreetTestToolStripMenuItem.Enabled = false;
+                    scheduleStreetTestToolStripMenuItem.Enabled = false;
                     break;
                 case 2: 
-                    //scheduleVisionTestToolStripMenuItem.Enabled = false;
-                    //scheduleWrittenTestToolStripMenuItem.Enabled = false;
+                    scheduleVisionTestToolStripMenuItem.Enabled = false;
+                    scheduleWrittenTestToolStripMenuItem.Enabled = false;
                     scheduleStreetTestToolStripMenuItem.Enabled = true;
                     break;
                 case 3:
                     toolStripMenuItem3.Enabled = false;
                     IssueDringLicenseToolStripMenuItem.Enabled = true;
-                    ShowLicenseToolStripMenuItem.Enabled = true;
                     break;
 
                 default:
@@ -212,6 +231,50 @@ namespace DVLD_Solution
         private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _ScheduleTest(clsTestTypesBusiness.enTestType.Vision);
+        }
+
+        private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(clsTestTypesBusiness.enTestType.Written);
+        }
+
+        private void scheduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(clsTestTypesBusiness.enTestType.PracticalStreet);
+        }
+
+        private void IssueDringLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(dataGridView1.CurrentRow.Cells["LocalDrivingLicenseApplicationID"].Value.ToString());
+            
+            frmIssueDringLicenseFirstTime gg = new frmIssueDringLicenseFirstTime(id);
+
+            gg.ShowDialog();
+
+            clsLDLApplicationsBusiness LDLApp = clsLDLApplicationsBusiness.FindByLocalDrivingAppLicenseID(id);
+
+            if (clsLicensesBuisness.IsExist(LDLApp.ApplicationID, LDLApp.LicenseClassID))
+            {
+                LDLApp.Completed();
+                LoadData();
+            }
+
+        }
+
+        private void ShowLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLicenseInfo frmLicenseInfo = new frmLicenseInfo(int.Parse(dataGridView1.CurrentRow.Cells["LocalDrivingLicenseApplicationID"].Value.ToString()));
+
+            frmLicenseInfo.ShowDialog();
+
+        }
+
+        private void phoneCallToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string National = dataGridView1.CurrentRow.Cells["NationalNo"].Value.ToString();
+            frmLicenseHistory LicenseHistory = new frmLicenseHistory(clsPeopleBusiness.Find(National).PersonID);
+
+            LicenseHistory.ShowDialog();
         }
     }
 }

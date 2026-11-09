@@ -3,49 +3,36 @@
   "WorkspaceRootPath": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\tests\\frmlisttestappointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:tests\\frmlisttestappointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|d:\\programmer\\abu-hadhoud\\stage 2\\level 19\\dvld_solution\\applications\\local driving license\\frmmanage_localdrivinglicenseapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:applications\\local driving license\\frmmanage_localdrivinglicenseapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\applications\\local driving license\\frmmanage_localdrivinglicenseapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:applications\\local driving license\\frmmanage_localdrivinglicenseapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\tests\\frmlisttestappointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:tests\\frmlisttestappointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|d:\\programmer\\abu-hadhoud\\stage 2\\level 19\\dvld_solution\\tests\\tests types\\scheduletest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:tests\\tests types\\scheduletest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\people\\ucsearchperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:people\\ucsearchperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3976BBE5-5E93-4C46-A5AA-611C90883A7B}|..\\DVLD_Business_Layer\\DVLD_Business_Layer.csproj|d:\\programmer\\abu-hadhoud\\stage 2\\level 19\\dvld_business_layer\\tests\\clstestappointmentsbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\users\\manage_users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:users\\manage_users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E6A8C04F-3508-46E8-BC56-55608F56D290}|..\\DVLD_DataAccess\\DVLD_DataAccess.csproj|d:\\programmer\\abu-hadhoud\\stage 2\\level 19\\dvld_dataaccess\\tests\\clstestappointmentsdataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\users\\manage_users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:users\\manage_users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|d:\\programmer\\abu-hadhoud\\stage 2\\level 19\\dvld_solution\\tests\\tests types\\scheduletest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:tests\\tests types\\scheduletest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\people\\addeditpersoninfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:people\\addeditpersoninfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|d:\\programmer\\abu-hadhoud\\stage 2\\level 19\\dvld_solution\\tests\\controls\\ucdrivinglicenseapplicationinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:tests\\controls\\ucdrivinglicenseapplicationinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|d:\\programmer\\abu-hadhoud\\stage 2\\level 19\\dvld_solution\\tests\\tests types\\scheduletest.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:tests\\tests types\\scheduletest.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\applications\\local driving license\\frmmanage_localdrivinglicenseapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:applications\\local driving license\\frmmanage_localdrivinglicenseapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3976BBE5-5E93-4C46-A5AA-611C90883A7B}|..\\DVLD_Business_Layer\\DVLD_Business_Layer.csproj|d:\\programmer\\abu-hadhoud\\stage 2\\level 19\\dvld_business_layer\\tests\\clstesttypesbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\people\\addeditpersoninfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{22D17640-61C4-4F70-98F8-951D2E27A2AE}|DVLD_Solution.csproj|solutionrelative:people\\addeditpersoninfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -55,85 +42,66 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAlAAAA",
+              "DocumentIndex": 2,
+              "Title": "Main.cs [Design]",
+              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Main.cs",
+              "RelativeDocumentMoniker": "Main.cs",
+              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Main.cs [Design]",
+              "RelativeToolTip": "Main.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-27T22:17:37.45Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "clsTestTypesBusiness.cs",
-              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Business_Layer\\Tests\\clsTestTypesBusiness.cs",
-              "RelativeDocumentMoniker": "..\\DVLD_Business_Layer\\Tests\\clsTestTypesBusiness.cs",
-              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Business_Layer\\Tests\\clsTestTypesBusiness.cs",
-              "RelativeToolTip": "..\\DVLD_Business_Layer\\Tests\\clsTestTypesBusiness.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAA/wC0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-28T19:27:42.343Z",
+              "WhenOpened": "2026-11-04T13:39:33.94Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "clsTestAppointmentsDataAccess.cs",
-              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_DataAccess\\Tests\\clsTestAppointmentsDataAccess.cs",
-              "RelativeDocumentMoniker": "..\\DVLD_DataAccess\\Tests\\clsTestAppointmentsDataAccess.cs",
-              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_DataAccess\\Tests\\clsTestAppointmentsDataAccess.cs",
-              "RelativeToolTip": "..\\DVLD_DataAccess\\Tests\\clsTestAppointmentsDataAccess.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAAAJkAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-27T23:00:01.335Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmListTestAppointments.cs [Design]",
-              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Tests\\frmListTestAppointments.cs",
-              "RelativeDocumentMoniker": "Tests\\frmListTestAppointments.cs",
-              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Tests\\frmListTestAppointments.cs [Design]",
-              "RelativeToolTip": "Tests\\frmListTestAppointments.cs [Design]",
+              "Title": "frmManage_LocalDrivingLicenseApplication.cs",
+              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Applications\\Local Driving License\\frmManage_LocalDrivingLicenseApplication.cs",
+              "RelativeDocumentMoniker": "Applications\\Local Driving License\\frmManage_LocalDrivingLicenseApplication.cs",
+              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Applications\\Local Driving License\\frmManage_LocalDrivingLicenseApplication.cs",
+              "RelativeToolTip": "Applications\\Local Driving License\\frmManage_LocalDrivingLicenseApplication.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAgwD8AAABdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-28T22:25:36.268Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmListTestAppointments.cs",
-              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Tests\\frmListTestAppointments.cs",
-              "RelativeDocumentMoniker": "Tests\\frmListTestAppointments.cs",
-              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Tests\\frmListTestAppointments.cs",
-              "RelativeToolTip": "Tests\\frmListTestAppointments.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAwwDsAAABFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-27T22:44:39.256Z",
+              "WhenOpened": "2026-11-09T14:13:26.186Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ScheduleTest.cs [Design]",
-              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Tests\\Tests Types\\ScheduleTest.cs",
-              "RelativeDocumentMoniker": "Tests\\Tests Types\\ScheduleTest.cs",
-              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Tests\\Tests Types\\ScheduleTest.cs [Design]",
-              "RelativeToolTip": "Tests\\Tests Types\\ScheduleTest.cs [Design]",
+              "Title": "UCSearchPerson.cs [Design]",
+              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\People\\UCSearchPerson.cs",
+              "RelativeDocumentMoniker": "People\\UCSearchPerson.cs",
+              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\People\\UCSearchPerson.cs [Design]",
+              "RelativeToolTip": "People\\UCSearchPerson.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-01T11:13:17.449Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-11-09T14:06:48.494Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Manage_Users.cs",
+              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Users\\Manage_Users.cs",
+              "RelativeDocumentMoniker": "Users\\Manage_Users.cs",
+              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Users\\Manage_Users.cs",
+              "RelativeToolTip": "Users\\Manage_Users.cs",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAAHQAAABrAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T14:04:24.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Manage_Users.cs [Design]",
+              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Users\\Manage_Users.cs",
+              "RelativeDocumentMoniker": "Users\\Manage_Users.cs",
+              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Users\\Manage_Users.cs [Design]",
+              "RelativeToolTip": "Users\\Manage_Users.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T14:04:22.069Z"
             },
             {
               "$type": "Document",
@@ -144,72 +112,30 @@
               "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Applications\\Local Driving License\\frmManage_LocalDrivingLicenseApplication.cs [Design]",
               "RelativeToolTip": "Applications\\Local Driving License\\frmManage_LocalDrivingLicenseApplication.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-28T22:12:12.013Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "clsTestAppointmentsBusiness.cs",
-              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Business_Layer\\Tests\\clsTestAppointmentsBusiness.cs",
-              "RelativeDocumentMoniker": "..\\DVLD_Business_Layer\\Tests\\clsTestAppointmentsBusiness.cs",
-              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Business_Layer\\Tests\\clsTestAppointmentsBusiness.cs",
-              "RelativeToolTip": "..\\DVLD_Business_Layer\\Tests\\clsTestAppointmentsBusiness.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAYwEoAAABEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-29T20:31:30.044Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-09T13:54:13.318Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "ScheduleTest.cs",
-              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Tests\\Tests Types\\ScheduleTest.cs",
-              "RelativeDocumentMoniker": "Tests\\Tests Types\\ScheduleTest.cs",
-              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Tests\\Tests Types\\ScheduleTest.cs",
-              "RelativeToolTip": "Tests\\Tests Types\\ScheduleTest.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAqwFUAAAAQAAAA",
+              "Title": "AddEditPersonInfo.cs",
+              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\People\\AddEditPersonInfo.cs",
+              "RelativeDocumentMoniker": "People\\AddEditPersonInfo.cs",
+              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\People\\AddEditPersonInfo.cs",
+              "RelativeToolTip": "People\\AddEditPersonInfo.cs",
+              "ViewState": "AQIAAMoAAAAAAAAAAAAQwPgAAAB/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-01T21:17:17.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-09T12:51:21.972Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "UCDrivingLicenseApplicationInfo.cs [Design]",
-              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Tests\\Controls\\UCDrivingLicenseApplicationInfo.cs",
-              "RelativeDocumentMoniker": "Tests\\Controls\\UCDrivingLicenseApplicationInfo.cs",
-              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Tests\\Controls\\UCDrivingLicenseApplicationInfo.cs [Design]",
-              "RelativeToolTip": "Tests\\Controls\\UCDrivingLicenseApplicationInfo.cs [Design]",
+              "Title": "AddEditPersonInfo.cs [Design]",
+              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\People\\AddEditPersonInfo.cs",
+              "RelativeDocumentMoniker": "People\\AddEditPersonInfo.cs",
+              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\People\\AddEditPersonInfo.cs [Design]",
+              "RelativeToolTip": "People\\AddEditPersonInfo.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-01T22:33:49.869Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ScheduleTest.Designer.cs",
-              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Tests\\Tests Types\\ScheduleTest.Designer.cs",
-              "RelativeDocumentMoniker": "Tests\\Tests Types\\ScheduleTest.Designer.cs",
-              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Tests\\Tests Types\\ScheduleTest.Designer.cs",
-              "RelativeToolTip": "Tests\\Tests Types\\ScheduleTest.Designer.cs",
-              "ViewState": "AQIAALkAAAAAAAAAAAArwMQAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-01T21:19:01.998Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "frmManage_LocalDrivingLicenseApplication.cs",
-              "DocumentMoniker": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Applications\\Local Driving License\\frmManage_LocalDrivingLicenseApplication.cs",
-              "RelativeDocumentMoniker": "Applications\\Local Driving License\\frmManage_LocalDrivingLicenseApplication.cs",
-              "ToolTip": "D:\\Programmer\\Abu-Hadhoud\\Stage 2\\Level 19\\DVLD_Solution\\Applications\\Local Driving License\\frmManage_LocalDrivingLicenseApplication.cs",
-              "RelativeToolTip": "Applications\\Local Driving License\\frmManage_LocalDrivingLicenseApplication.cs",
-              "ViewState": "AQIAAHYAAAAAAAAAAAAAAJ4AAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-27T22:05:49.378Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-09T12:51:19.769Z"
             }
           ]
         }

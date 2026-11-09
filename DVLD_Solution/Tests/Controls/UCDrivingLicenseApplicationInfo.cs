@@ -13,13 +13,16 @@ namespace DVLD_Solution.Tests.Controls
 {
     public partial class UCDrivingLicenseApplicationInfo : UserControl
     {
+        int PersonID = 0;
+        public clsLDLApplicationsBusiness LDL;
+        public clsApplicationBusiness application;
         public UCDrivingLicenseApplicationInfo()
         {
             InitializeComponent();
         }
         public void LoadData(int LocalDrivingLicenseApplicationID)
         {
-            clsLDLApplicationsBusiness LDL = clsLDLApplicationsBusiness.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID);
+            LDL = clsLDLApplicationsBusiness.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID);
 
             if (LDL != null)
             {
@@ -28,17 +31,26 @@ namespace DVLD_Solution.Tests.Controls
                 labPassed.Text = LDL.GetPassedTestCount().ToString() + "/3";
 
 
-                clsApplicationBusiness application = clsApplicationBusiness.FindBaseApplication(LDL.ApplicationID);
+                application = clsApplicationBusiness.FindBaseApplication(LDL.ApplicationID);
                 
                 labID.Text = application.ApplicationID.ToString();
                 labStatus.Text = application.ApplicationStatus.ToString();
                 labFees.Text = application.PaidFees.ToString();
-                labType.Text = application.ApplicationTypeID.ToString();
+                labType.Text = clsApplicationTypesBusiness.FindApplicationTypes(application.ApplicationTypeID).ApplicationTypeTitle.ToString();
                 labApplicant.Text = application.ApplicantFullName.ToString();
                 labDate.Text = application.ApplicationDate.ToString();
                 labStatusDate.Text = application.LastStatusDate.ToString();
                 labCreatedBy.Text = application.CreatedByUserID.ToString();
+
+                PersonID = application.ApplicationPersonID;
             }
+        }
+
+        private void llViewPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PersonDetails personDetails = new PersonDetails(PersonID);
+
+            personDetails.ShowDialog();
         }
     }
 }

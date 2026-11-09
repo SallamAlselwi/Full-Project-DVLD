@@ -79,10 +79,11 @@ namespace DVLD_Solution
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            textBox1.Text = "";
+
             if(dataTPeople != null)
                 if (comFilter.SelectedItem.ToString() == "Gendor")
                 {
-                    textBox1.Text = "";
                     comboboxMaleFemale.SelectedIndex = 0;
 
                     textBox1.Visible = false;
@@ -90,15 +91,14 @@ namespace DVLD_Solution
                 }
                 else if (comFilter.SelectedIndex >= 1)
                 {
-                    textBox1.Text = "";
                     comboboxMaleFemale.SelectedIndex = 0;
-                    
                     textBox1.Visible = true;
                     comboboxMaleFemale.Visible = false;
+
+                    textBox1.Focus();
                 }
                 else
                 {
-                    textBox1.Text = "";
                     comboboxMaleFemale.SelectedIndex = 0;
 
                     textBox1.Visible = false;

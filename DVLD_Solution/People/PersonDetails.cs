@@ -26,6 +26,13 @@ namespace DVLD_Solution
             ucPersonDetails1.Loading(ID);
 
         }
+        public PersonDetails(string NationalNo)
+        {
+            InitializeComponent();
+
+            ucPersonDetails1.Loading(NationalNo);
+
+        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {

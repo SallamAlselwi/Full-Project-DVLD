@@ -20,11 +20,11 @@ namespace DVLD_Business_Layer
         };
 
         public int ApplicationID { get; set; }
-        public int ApplicantPersonID {get; set;}
+        public int ApplicationPersonID {get; set;}
         public string ApplicantFullName 
         {   get
             {
-                return clsPeopleBusiness.Find(this.ApplicantPersonID).FullName;
+                return clsPeopleBusiness.Find(this.ApplicationPersonID).FullName;
             }
         }
         public DateTime ApplicationDate {get; set;}
@@ -40,7 +40,7 @@ namespace DVLD_Business_Layer
         public clsApplicationBusiness() 
         {
             ApplicationID = -1;
-            ApplicantPersonID = -1;
+            ApplicationPersonID = -1;
             ApplicationDate = DateTime.Now;
             LastStatusDate = DateTime.Now;
             ApplicationTypeID = -1;
@@ -51,11 +51,11 @@ namespace DVLD_Business_Layer
             ApplicationStatus = Status.New;
 
         }
-        clsApplicationBusiness(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int applicationTypeID,
+        clsApplicationBusiness(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID,
                             byte ApplicationStatus, DateTime LastStatusDate, decimal PaidFees, int CreatedByUserID)
         {
             this.ApplicationID = ApplicationID;
-            this.ApplicantPersonID = ApplicantPersonID;
+            this.ApplicationPersonID = ApplicantPersonID;
             this.ApplicationDate = ApplicationDate;
             this.ApplicationTypeID = ApplicationTypeID;
             this.ApplicationStatus = (Status)ApplicationStatus;
@@ -90,9 +90,28 @@ namespace DVLD_Business_Layer
                 return null;
         }
 
+        /*public static clsApplicationBusiness FindBasePersonID(int PersonID)
+        {
+            int ApplicationID = -1, applicationTypeID = -1, CreatedByUserID = -1;
+            byte ApplicationStatus = 1;
+            DateTime LastStatusDate = DateTime.Now, ApplicationDate = DateTime.Now;
+            decimal PaidFees = 0;
+
+            bool isFound = clsApplicationsDataAccess.GetApplicationInfoByID(ref ApplicationID, PersonID, ref ApplicationDate, ref applicationTypeID,
+                                                                            ref ApplicationStatus, ref LastStatusDate, ref PaidFees, ref CreatedByUserID);
+
+            if (isFound)
+            {
+                return new clsApplicationBusiness(PersonID, ApplicationID, ApplicationDate, applicationTypeID, ApplicationStatus,
+                                        LastStatusDate, PaidFees, CreatedByUserID);
+            }
+            else
+                return null;
+        }*/
+
         bool _AddNewApplication()
         {
-            this.ApplicationID = clsApplicationsDataAccess.AddNewApplication(this.ApplicantPersonID, this.ApplicationDate, 
+            this.ApplicationID = clsApplicationsDataAccess.AddNewApplication(this.ApplicationPersonID, this.ApplicationDate, 
                 this.ApplicationTypeID, (byte)this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
 
             if(this.ApplicationID > 0)
@@ -114,7 +133,7 @@ namespace DVLD_Business_Layer
         }*/
         /*private bool _Update()
         {
-            return clsApplicationDataAccess.UpdateApplicationTypes(this.ApplicationID, this.ApplicationTitle, this.ApplicationFees);
+            return clsApplicationDataAccess.UpdateApplicationTypes(this.PersonID, this.ApplicationTitle, this.ApplicationFees);
         }*/
 
         static public int IsApplicationExist(int ApplicantPersonID, int ApplicationTypeID)

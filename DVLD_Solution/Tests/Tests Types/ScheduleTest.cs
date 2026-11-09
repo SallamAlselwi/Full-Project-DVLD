@@ -16,15 +16,19 @@ namespace DVLD_Solution.Tests.Tests_Types
     public partial class ScheduleTest : Form
     {
         int DLAppID;
+        int AppointmentID;
+        bool isRetake;
         clsTestTypesBusiness.enTestType TestType;
         clsLDLApplicationsBusiness LDL;
         clsTestAppointmentsBusiness TestAppointment;
-        public ScheduleTest(int DLAppID, clsTestTypesBusiness.enTestType TestType)
+        public ScheduleTest(int DLAppID, clsTestTypesBusiness.enTestType TestType, int AppointmentID = -1, bool isRetake = false)
         {
             InitializeComponent();
 
             this.DLAppID = DLAppID;
             this.TestType = TestType;
+            this.AppointmentID = AppointmentID;
+            this.isRetake = isRetake;
         }
 
         void LoadData()
@@ -35,12 +39,33 @@ namespace DVLD_Solution.Tests.Tests_Types
             labClassName.Text = clsLicenseClassesBusiness.Find(LDL.LicenseClassID).ClassName;
             labPersonName.Text = LDL.ApplicantFullName;
             //labTrial.Text =
-            labFees.Text = clsLicenseClassesBusiness.Find(LDL.LicenseClassID).ClassFees.ToString();
+            labFees.Text = clsTestTypesBusiness.FindTestTypes((int)TestType).TestTypeFees.ToString();
 
+            if (isRetake)
+            {
+                groupBox2.Enabled = true;
 
+                labRAppFees.Text = clsApplicationTypesBusiness.FindApplicationTypes(7).ApplicationFees.ToString();
+            }
+
+            labTotalFees.Text = (Convert.ToDouble(labRAppFees.Text) + Convert.ToDouble(labFees.Text)).ToString();
+            
+            if (AppointmentID > 0)
+            {
+                TestAppointment = clsTestAppointmentsBusiness.FindTestAppointment(AppointmentID, LDL.LocalDrivingLicenseApplicationID);
+
+                dateTimePicker1.Value = Convert.ToDateTime(TestAppointment.AppointmentDate);
+
+                labFees.Text = TestAppointment.PaidFees.ToString();
+                
+                if (TestAppointment.IsLocked)
+                {
+                    label1.Visible = true;
+                    btnSave.Enabled = false;
+                    dateTimePicker1.Enabled = false;
+                }
+            }
         }
-        
-
         private void ScheduleTest_Load(object sender, EventArgs e)
         {
             switch (this.TestType)
@@ -72,13 +97,25 @@ namespace DVLD_Solution.Tests.Tests_Types
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            TestAppointment = new clsTestAppointmentsBusiness();
+            if(AppointmentID < 0)
+            {
+                TestAppointment = new clsTestAppointmentsBusiness();
 
-            TestAppointment.TestTypeID = (int)TestType;
-            TestAppointment.LocalDrivingLicenseApplicationID = LDL.LocalDrivingLicenseApplicationID;
-            TestAppointment.AppointmentDate = dateTimePicker1.Value;
-            TestAppointment.PaidFees = LDL.PaidFees;
-            TestAppointment.CreatedByUserID = clsGlobal.user.UserID;
+                TestAppointment.TestTypeID = (int)TestType;
+                TestAppointment.LocalDrivingLicenseApplicationID = LDL.LocalDrivingLicenseApplicationID;
+                TestAppointment.AppointmentDate = dateTimePicker1.Value;
+                TestAppointment.PaidFees = int.Parse(labTotalFees.Text);
+                TestAppointment.CreatedByUserID = clsGlobal.user.UserID;
+
+                if (isRetake)
+                {
+                    TestAppointment.TestAppointmentID = (int)clsApplicationBusiness.enApplicationType.RetakeTest;
+                }
+            }
+            else
+            {
+                TestAppointment.AppointmentDate = dateTimePicker1.Value;
+            }
 
             if (TestAppointment.Save())
             {

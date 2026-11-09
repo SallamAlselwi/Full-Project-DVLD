@@ -49,30 +49,26 @@ namespace DVLD_DataAccess
         }
 
         public static int AddNewApplication(int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID,
-                                byte ApplicationStatus, DateTime LastStatusDate, dynamic PaidFees, int CreatedByUserID)
+                                byte ApplicationStatus, DateTime LastStatusDate, decimal PaidFees, int CreatedByUserID)
         {
             int ApplicationID = -1;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"INSERT INTO Applications (ApplicantPersonID,ApplicationDate,ApplicationTypeID, 
-                                                        ApplicationStatus,LastStatusDate, PaidFees,CreatedByUserID)
-                             VALUES (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, 
-                                        @LastStatusDate, @PaidFees, @CreatedByUserID);
-                             SELECT SCOPE_IDENTITY();";
+            string query = @"INSERT INTO Applications (ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
+                             VALUES (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID);
+                             
+                                SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("ApplicantPersonID", @ApplicantPersonID);
-            command.Parameters.AddWithValue("ApplicationDate", @ApplicationDate);
-            command.Parameters.AddWithValue("ApplicationTypeID", @ApplicationTypeID);
-            command.Parameters.AddWithValue("ApplicationStatus", @ApplicationStatus);
-            command.Parameters.AddWithValue("LastStatusDate", @LastStatusDate);
-            command.Parameters.AddWithValue("PaidFees", @PaidFees);
-            command.Parameters.AddWithValue("CreatedByUserID", @CreatedByUserID);
-
-
-
+            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+            command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
+            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
+            command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
+            command.Parameters.AddWithValue("@PaidFees", PaidFees);
+            command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
             try
             {
@@ -175,6 +171,49 @@ namespace DVLD_DataAccess
 
             return rowsAffected;
         }
+        /*public static bool GetPersonByID(ref int ApplicationID, int ApplicantPersonID, ref DateTime ApplicationDate, ref int ApplicationTypeID,
+                                ref byte ApplicationStatus, ref DateTime LastStatusDate, ref decimal PaidFees, ref int CreatedByUserID)
+        {
+            bool rowsAffected = false;
+            SqlConnection _connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT *FROM Applications A
+                            WHERE A.ApplicationID = @ApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, _connection);
+
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+            try
+            {
+                _connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    ApplicationDate = (DateTime)reader["ApplicationDate"];
+                    ApplicantPersonID = (int)reader["ApplicantPersonID"];
+                    LastStatusDate = (DateTime)reader["LastStatusDate"];
+                    ApplicationTypeID = (int)reader["ApplicationTypeID"];
+                    ApplicationStatus = (byte)reader["ApplicationStatus"];
+                    PaidFees = (decimal)reader["PaidFees"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+
+                    rowsAffected = true;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+
+            return rowsAffected;
+        }*/
 
         //public static bool UpdateApplications(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int ApplicantPersonID, 
         //                                byte ApplicationStatus, DateTime LastStatusDate, decimal PaidFees, int CreatedByUserID)
@@ -312,7 +351,8 @@ namespace DVLD_DataAccess
                             WHERE A.ApplicantPersonID = @ApplicationPersonID
                             and ApplicationTypeID = @ApplicationTypeID
 							and L.LicenseClassID = @LicenseClassID
-                            and ApplicationStatus = 1;";
+                            and ApplicationStatus = 1
+                            and ApplicationStatus = 3;";
 
             SqlCommand command = new SqlCommand(query, connection);
 

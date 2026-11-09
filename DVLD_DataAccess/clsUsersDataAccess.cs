@@ -257,7 +257,7 @@ namespace DVLD_DataAccess
             }
 
 
-            return (rowsAffected >= 0);
+            return (rowsAffected > 0);
         }
         public static bool ChangePassword(int UserID, string Password)
         {

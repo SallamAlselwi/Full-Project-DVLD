@@ -348,7 +348,7 @@ namespace DVLD_DataAccess
             }
 
 
-            return (rowsAffected >= 0); 
+            return (rowsAffected > 0); 
         }
         
         static public bool IsEmailExist(string Email)

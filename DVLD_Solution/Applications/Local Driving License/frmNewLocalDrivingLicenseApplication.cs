@@ -27,7 +27,7 @@ namespace DVLD_Solution
         {
             _LocalDrivingLicenseApplication = new clsLDLApplicationsBusiness();
 
-            _LocalDrivingLicenseApplication.ApplicantPersonID = ucSearchPerson1.personDetails.person.PersonID;
+            _LocalDrivingLicenseApplication.ApplicationPersonID = ucSearchPerson1.personDetails.person.PersonID;
             _LocalDrivingLicenseApplication.ApplicationDate = DateTime.Now;
             _LocalDrivingLicenseApplication.ApplicationTypeID = 1;
             _LocalDrivingLicenseApplication.ApplicationStatus = clsApplicationBusiness.Status.New;
@@ -81,7 +81,7 @@ namespace DVLD_Solution
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //int LicenseClassID = clsLicenseClassesBusiness.Find(comboBox1.Text).LicenseClassID;
+            //int LicenseClassID = clsLicenseClassesBusiness.FindByDriverID(comboBox1.Text).LicenseClassID;
             int LicenseClassID = int.Parse(comboBox1.SelectedValue.ToString());
 
             int ActiveApplicationID = clsApplicationBusiness.GetActiveApplicationIDForLicenseClass(ucSearchPerson1.personDetails.person.PersonID, clsApplicationBusiness.enApplicationType.NewDrivingLicense, LicenseClassID);

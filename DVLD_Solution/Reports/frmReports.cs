@@ -48,6 +48,34 @@ namespace DVLD_Solution
                 await webView21.ExecuteScriptAsync(script);
             }
         }
+        private async Task LoadApplicationsDataAsync()
+        {
+            DataTable dataTable = await clsReports.GetApplicationReports();
+
+            if (dataTable != null)
+            {
+                // تحويل DataTable إلى JSON مباشرة
+                string jsonString = JsonConvert.SerializeObject(dataTable);
+
+                // إرسال البيانات لدالة الجافاسكربت
+                string script = $"loadReportData({jsonString});";
+                await webView21.ExecuteScriptAsync(script);
+            }
+        }
+        private async Task LoadDriversDataAsync()
+        {
+            DataTable dataTable = await clsReports.GetDriversReports();
+
+            if (dataTable != null)
+            {
+                // تحويل DataTable إلى JSON مباشرة
+                string jsonString = JsonConvert.SerializeObject(dataTable);
+
+                // إرسال البيانات لدالة الجافاسكربت
+                string script = $"loadReportData({jsonString});";
+                await webView21.ExecuteScriptAsync(script);
+            }
+        }
         private async void frmReports_Load(object sender, EventArgs e)
         {
             await webView21.EnsureCoreWebView2Async(null);
@@ -73,7 +101,7 @@ namespace DVLD_Solution
         private void btnReportUsers_Click(object sender, EventArgs e)
         {
             // 2. Load HTML File
-            string htmlPath = Path.Combine(Application.StartupPath, @"C:\Users\Administrator\Downloads\DVLD Repors Users.html");
+            string htmlPath = Path.Combine(Application.StartupPath, @"Reports\DVLD Reports Users.html");
             if (File.Exists(htmlPath))
             {
                 webView21.Source = new Uri(htmlPath);
@@ -88,5 +116,39 @@ namespace DVLD_Solution
             }
         }
 
+        private void btnApplications_Click(object sender, EventArgs e)
+        {
+            string htmlPath = Path.Combine(Application.StartupPath, @"Reports\DVLD Reports Applications.html");
+            if (File.Exists(htmlPath))
+            {
+                webView21.Source = new Uri(htmlPath);
+
+                webView21.CoreWebView2.NavigationCompleted += async (s, args) =>
+                {
+                    if (args.IsSuccess)
+                    {
+                        await LoadApplicationsDataAsync();
+                    }
+                };
+            }
+        }
+
+        private void btnDrivers_Click(object sender, EventArgs e)
+        {
+            string htmlPath = Path.Combine(Application.StartupPath, @"Reports\DVLD Reports Drivers.html");
+            if (File.Exists(htmlPath))
+            {
+                webView21.Source = new Uri(htmlPath);
+
+                webView21.CoreWebView2.NavigationCompleted += async (s, args) =>
+                {
+                    if (args.IsSuccess)
+                    {
+                        await LoadDriversDataAsync();
+                    }
+                };
+            }
+
+        }
     }
 }
